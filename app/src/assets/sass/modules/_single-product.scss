@@ -1,0 +1,43 @@
+.single-product {
+
+  & {
+
+  }
+
+  &__image-wrap {
+    width: 50%;
+    float: left;
+  }
+
+  &__image {
+
+  }
+
+  &__content-wrap {
+    width: 50%;
+    float: right;
+  }
+
+  &__brand {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0;
+
+    a {
+      text-decoration: none;
+      color: #ec008c;
+    }
+  }
+
+  &__title {
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__description {
+    font-weight: 300;
+    font-size: 18px;
+  }
+}

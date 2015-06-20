@@ -20,7 +20,10 @@ html(lang="en")
 		| {{ '//html5shiv.googlecode.com/svn/trunk/html5.js' | script_tag }}
 		<![endif]-->
 
-		| {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+		| {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' | script_tag }}
+		script(src='//use.typekit.net/tyt2mqb.js')
+		script.
+			try{Typekit.load();}catch(e){}
 		script.
 			jQuery('html').removeClass('no-js').addClass('js');
 
@@ -29,73 +32,80 @@ html(lang="en")
 		.home-leader(style="background-image: url( {{ 'home-leader-01.jpg' | asset_url }} );")
 
 			| {% include 'social-links' %}
-
-			a(href="/cart")
-				//- img(src="{{ 'cart.svg' | asset_url }}")
-				| {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})
-				| cart
-
-			| {% if shop.customer_accounts_enabled %}
-
-			| 	{% if customer %}
-			| 		Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
-			| 	{% else %}
-			| 		{{ 'Log in' | customer_login_link }}
-			| 	{% if shop.customer_accounts_optional %}
-			| 		or {{ 'Create an account' | customer_register_link }}
-			| 	{% endif %}
-			| {% endif %}
-
-			| {% endif %}
-
-			| {% if settings.use_logo %}
-
-			a(href='/')
-				| {{ 'logo.png' | asset_url | img_tag: shop.name }}
-			| {% else %}
-			a#site-title(href='')
-				|	{{ shop.name }}
-			| {% endif %}
-			| {% if template == 'index' %}
-			| {{ shop.name }}
-			| {% endif %}
-			.site-header
+			.site-cart
 				.container
-					h1.site-header__title
-						img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
-					| {% include 'site-nav' %}
+					a(href="/cart")
+						//- img(src="{{ 'cart.svg' | asset_url }}")
+						| {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})
+						| cart
 
-			form(action="/search", method="get", class="search-form right", role="search")
-				input(name="q", type="search", id="search-field", placeholder="Search store...", value="{{ search.terms | escape }}")
-				input(type="submit", id="search-submit", value="Search")
+					| {% if shop.customer_accounts_enabled %}
+
+					| 	{% if customer %}
+					| 		Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+					| 	{% else %}
+					| 		{{ 'Log in' | customer_login_link }}
+					| 	{% if shop.customer_accounts_optional %}
+					| 		or {{ 'Create an account' | customer_register_link }}
+					| 	{% endif %}
+					| {% endif %}
+
+					| {% endif %}
+
+			//- | {% if settings.use_logo %}
+
+			//- a(href='/')
+			//- 	| {{ 'logo.png' | asset_url | img_tag: shop.name }}
+			//- | {% else %}
+			//- a#site-title(href='')
+			//- 	|	{{ shop.name }}
+			//- | {% endif %}
+			//- | {% if template == 'index' %}
+			//- | {{ shop.name }}
+			//- | {% endif %}
+			.site-header
+				.container.site-header__container
+					h1.site-header__title
+						a(href='/')
+							img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
+					| {% include 'site-nav' %}
+					//- | {% include 'site-header-search' %}
+
 		| {% else %}
 		.site-header
-			.container
+			.container.site-header__container
 				h1.site-header__title
-					img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
+					a(href='/')
+						img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
 				| {% include 'site-nav' %}
+				//- | {% include 'site-header-search' %}
 
 		| {% endif %}
 
 	#main.site-content(role="main")
-		| {{ content_for_layout }}
+		.container
+			| {{ content_for_layout }}
 
 
 	footer.site-footer
-		| {% if linklists.footer.links.size > 0 %}
-		| 	{% for link in linklists.footer.links %}
-		| 		<a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-		| 	{% endfor %}
-		| {% endif %}
+		.container
+			| {% if linklists.footer.links.size > 0 %}
+			ul.site-footer__menu
+				| 	{% for link in linklists.footer.links %}
+				li.site-footer__menu-item
+					a.site-footer__menu-link(href="{{ link.url }}", title="{{ link.title }}", class="{% if link.active %}active{% endif %}")
+						| {{ link.title }}
+				| 	{% endfor %}
+			| {% endif %}
 
-		| {% unless shop.enabled_payment_types == empty %}
+			| {% unless shop.enabled_payment_types == empty %}
 
-		| 	{% for type in shop.enabled_payment_types %}
-		img(width="40", src="{{ type | payment_type_img_url }}")
-		| 	{% endfor %}
-		| {% endunless %}
-		p.
-			Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}
+			| 	{% for type in shop.enabled_payment_types %}
+			img(width="40", src="{{ type | payment_type_img_url }}")
+			| 	{% endfor %}
+			| {% endunless %}
+			p.
+				Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}.
 
-	| {{ 'script.min.js'  | asset_url | script_tag }}
+		| {{ 'script.min.js'  | asset_url | script_tag }}
 

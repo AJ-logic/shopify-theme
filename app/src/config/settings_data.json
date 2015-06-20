@@ -1,7 +1,7 @@
 {
-  "current": "Slate",
+  "current": "CFYE",
   "presets": {
-    "Slate": {
+    "CFYE": {
       "customer_layout": "theme",
       "background_color": "#e6ebeb",
       "text_color": "#555555",

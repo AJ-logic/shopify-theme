@@ -6,7 +6,7 @@ div
 
 | {% unless settings.homepage_collection == blank or collections[settings.homepage_collection].empty? %}
 | {% assign collection = collections[settings.homepage_collection] %}
-ul
+ul.product-grid
   | {% for product in collection.products %}
   | {% include 'product-grid-item' with 'three-per-row' %}
   | {% else %}

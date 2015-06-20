@@ -2,7 +2,8 @@
 
   & {
     height: 60px;
-    background-color: #ec008c;
+    float: right;
+    padding-left: 90px;
   }
 
   &__list {
@@ -15,15 +16,41 @@
     display: inline-block;
     height: 100%;
     line-height: 60px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 30px;
+
+    &--cart {
+      font-size: 20px;
+    }
   }
 
   &__link {
     color: #fff;
-    font-weight: 400;
     text-decoration: none;
+    &:hover,
+    &--active {
+      color: #ec008c;
+    }
   }
 
   &__search {
     float: right;
+    line-height: 60px;
+    font-size: 20px;
+    display: block;
+    width: 60px;
+    background-color: #ec008c;
+    text-align: center;
+
+    &:hover {
+      background-color: darken(#ec008c, 10%);
+    }
+
+    a {
+      display: block;
+      color: #fff;
+    }
   }
 }

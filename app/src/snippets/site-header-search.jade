@@ -1,0 +1,9 @@
+#search-toggle.site-header__search-toggle(class="{% if template == 'search' %} active{% endif %}")
+	i.site-header__search-toggle-icon.site-header__search-toggle-icon--active.fa.fa-search
+	i.site-header__search-toggle-icon.fa.fa-times
+.site-header__search-container
+	form.site-header__search-form(action="/search", method="get", class="search-form", role="search")
+		input.site-header__search-input(name="q", type="search", id="search-field", placeholder="Search store...", value="{{ search.terms | escape }}")
+		button.site-header__search-submit(type="submit", id="search-submit", value="Search")
+			i.site-header__search-icon.fa.fa-search
+		//- input(type="submit", id="search-submit", value="Search")

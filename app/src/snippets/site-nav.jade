@@ -28,7 +28,7 @@ nav.site-nav
 		|	{% assign has_sub_categories = true %}
 		| {% endif %}
 		li(class="site-nav__item {% if link.active or parent_link_active %} site-nav__item--active{% endif %}{% if has_sub_menu or has_sub_categories %} site-nav__item--has-dropdown{% endif %}{% if forloop.first %} site-nav__item--first{% elsif forloop.last %} site-nav__item--last{% endif %}")
-			a.site-nav__link(href="{{ link.url }}")
+			a.site-nav__link(href="{{ link.url }}", class="{% if link.active or parent_link_active %} site-nav__link--active{% endif %}")
 				| {{ link.title }}
 				| {% if has_sub_menu or has_sub_categories %}
 				i.fafa-angle-down
@@ -54,6 +54,8 @@ nav.site-nav
 			| {% endif %}
 
 		| {% endfor %}
-		li.site-nav__search(class="{% if template == 'search' %} active{% endif %}")
-			a.site-nav__search-link(href="/search")
-				i.site-nav__search-icon.fa.fa-search
+
+		li.site-nav__item.site-nav__item--cart
+			a.site-nav__link(href='#')
+				| {{ cart.item_count }}
+				i.fa.fa-shopping-cart

@@ -1,17 +1,114 @@
 .site-header {
 
   & {
+    z-index: 50;
+    position: relative;
+  }
 
+  &__container {
+    position: relative;
   }
 
   &__title {
-    float: left;
+    position: absolute;
+    left: 0;
+    top: 0;
     margin: 0;
     width: 60px;
     height: auto;
+    padding: 5px;
+    transition: .3s ease;
+
+    &:hover {
+      background-color: #ec008c;
+    }
   }
 
   &__logo {
     display: block;
+  }
+
+  &__search-toggle {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    color: #ececec;
+    text-align: center;
+    line-height: 60px;
+    float: right;
+    cursor: pointer;
+    background-color: #ec008c;
+    transition: background-color .2s ease;
+
+    &.active,
+    &:hover {
+      background-color: darken(#ec008c, 10%);
+      color: #fff;
+    }
+  }
+
+  &__search-toggle-icon {
+    display: none!important;
+
+    &--active {
+      display: inline-block!important;
+    }
+  }
+
+  &__search-container {
+    overflow: hidden;
+    width: 240px;
+    height: 60px;
+    float: right;
+    position: relative;
+  }
+
+  &__search-form {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 60px;
+    padding: 10px 0 10px 10px;
+    transform: translateX(100%);
+    transition: transform .3s ease;
+
+    &--active {
+      transform: translateX(0);
+      background-color: darken(#ec008c, 10%);
+    }
+  }
+
+  &__search-input {
+    border: none;
+    padding: 0 50px 0 10px;
+    height: 100%;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus + .site-header__search-submit {
+      color: #333;
+    }
+  }
+
+  &__search-submit {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    border: none;
+    background-color: transparent;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    color: #aaa;
+    transition: color .3s ease;
+    font-size: 20px;
+
+    &:hover {
+      color: #ec008c;
+    }
   }
 }
