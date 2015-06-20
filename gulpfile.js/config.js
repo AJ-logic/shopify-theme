@@ -1,6 +1,6 @@
 // Distribution paths
 var
-  app_path              = './app/',
+  app_path              = 'app/',
   src_path              = app_path + 'src/',
   build_path            = app_path + 'build/',
   bower_components      = './bower_components/';

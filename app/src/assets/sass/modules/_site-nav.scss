@@ -1,0 +1,29 @@
+.site-nav {
+
+  & {
+    height: 60px;
+    background-color: #ec008c;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    height: 100%;
+    line-height: 60px;
+  }
+
+  &__link {
+    color: #fff;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  &__search {
+    float: right;
+  }
+}

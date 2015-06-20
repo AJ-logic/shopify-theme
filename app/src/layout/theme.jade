@@ -25,44 +25,57 @@ html(lang="en")
 			jQuery('html').removeClass('no-js').addClass('js');
 
 	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
-
-		| {% include 'social-links' %}
-
-		a(href="/cart")
-			//- img(src="{{ 'cart.svg' | asset_url }}")
-			| {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})
-			| cart
-
-		| {% if shop.customer_accounts_enabled %}
-
-		| 	{% if customer %}
-		| 		Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
-		| 	{% else %}
-		| 		{{ 'Log in' | customer_login_link }}
-		| 	{% if shop.customer_accounts_optional %}
-		| 		or {{ 'Create an account' | customer_register_link }}
-		| 	{% endif %}
-		| {% endif %}
-
-		| {% endif %}
-
-		| {% if settings.use_logo %}
-
-		a(href='/')
-			| {{ 'logo.png' | asset_url | img_tag: shop.name }}
-		| {% else %}
-		a#site-title(href='')
-			|	{{ shop.name }}
-		| {% endif %}
 		| {% if template == 'index' %}
-		| {{ shop.name }}
+		.home-leader(style="background-image: url( {{ 'home-leader-01.jpg' | asset_url }} );")
+
+			| {% include 'social-links' %}
+
+			a(href="/cart")
+				//- img(src="{{ 'cart.svg' | asset_url }}")
+				| {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})
+				| cart
+
+			| {% if shop.customer_accounts_enabled %}
+
+			| 	{% if customer %}
+			| 		Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+			| 	{% else %}
+			| 		{{ 'Log in' | customer_login_link }}
+			| 	{% if shop.customer_accounts_optional %}
+			| 		or {{ 'Create an account' | customer_register_link }}
+			| 	{% endif %}
+			| {% endif %}
+
+			| {% endif %}
+
+			| {% if settings.use_logo %}
+
+			a(href='/')
+				| {{ 'logo.png' | asset_url | img_tag: shop.name }}
+			| {% else %}
+			a#site-title(href='')
+				|	{{ shop.name }}
+			| {% endif %}
+			| {% if template == 'index' %}
+			| {{ shop.name }}
+			| {% endif %}
+			.site-header
+				.container
+					h1.site-header__title
+						img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
+					| {% include 'site-nav' %}
+
+			form(action="/search", method="get", class="search-form right", role="search")
+				input(name="q", type="search", id="search-field", placeholder="Search store...", value="{{ search.terms | escape }}")
+				input(type="submit", id="search-submit", value="Search")
+		| {% else %}
+		.site-header
+			.container
+				h1.site-header__title
+					img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
+				| {% include 'site-nav' %}
+
 		| {% endif %}
-
-		| {% include 'site-nav' %}
-
-		form(action="/search", method="get", class="search-form right", role="search")
-			input(name="q", type="search", id="search-field", placeholder="Search store...", value="{{ search.terms | escape }}")
-			input(type="submit", id="search-submit", value="Search")
 
 	#main.site-content(role="main")
 		| {{ content_for_layout }}

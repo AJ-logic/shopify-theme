@@ -1,0 +1,17 @@
+.site-header {
+
+  & {
+
+  }
+
+  &__title {
+    float: left;
+    margin: 0;
+    width: 60px;
+    height: auto;
+  }
+
+  &__logo {
+    display: block;
+  }
+}
