@@ -16,7 +16,41 @@
         "content": "A custom CFYE theme for Shopify"
       }
     ]
-  // },
+  },
+  {
+    "name": "Home",
+    "settings": [
+      {
+        "type":      "header",
+        "content":   "Hero image"
+      },
+      {
+        "type": "image",
+        "id": "leader-image.jpg",
+        "label": "Leader image"
+      },
+      {
+        "type": "paragraph",
+        "content": "Use class=\"color\" on a an input tag to bring up the color picker. Only a few colors have been included here as an example."
+      },
+      {
+        "type":      "header",
+        "content":   "Row images"
+      },
+      {
+        "type": "image",
+        "id": "row-image-01",
+        "label": "Row image 1"
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width",
+        "label": "Max Logo Width",
+        "default": "450",
+        "info": "Defines the CSS max-width."
+      }
+    ]
+  }
   // {
   //   "name": "Colors",
   //   "settings": [
@@ -196,5 +230,4 @@
   //     }
   //   ]
   // }
-  }
 ]

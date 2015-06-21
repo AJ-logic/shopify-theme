@@ -27,9 +27,9 @@ html(lang="en")
 		script.
 			jQuery('html').removeClass('no-js').addClass('js');
 
-	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
+	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}page-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
 		| {% if template == 'index' %}
-		.home-leader(style="background-image: url( {{ 'home-leader-01.jpg' | asset_url }} );")
+		.home-leader(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
 
 			| {% include 'social-links' %}
 			.site-cart
