@@ -8,12 +8,7 @@
 
   &__item {
     @include span(4 of 12 0);
-    border: 4px solid #fff;
     position: relative;
-
-    &:last-child {
-
-    }
   }
 
   &__item-link {
@@ -44,9 +39,7 @@
   &__item-title {
     font-weight: 400;
     color: #fff;
-    // text-transform: uppercase;
     font-size: 28px;
-
   }
 
   &__image {
