@@ -40,8 +40,8 @@ module.exports = {
   },
 
   images: {
-    source: src_path+'assets/img/**/**/*',
-    build: build_path + 'assets/',
+    source: src_path+'assets/img/**/*',
+    build: build_path + 'assets',
     base: src_path
   },
 
