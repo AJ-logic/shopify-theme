@@ -8,7 +8,7 @@ div
 | {% assign collection = collections[settings.homepage_collection] %}
 ul.product-grid
   | {% for product in collection.products %}
-  | {% include 'product-grid-item' with 'three-per-row' %}
+  | {% include 'product-grid-item' with 'product-grid-item--two-per-row' %}
   | {% else %}
   li
     p

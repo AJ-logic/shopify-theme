@@ -1,0 +1,21 @@
+.product-grid-item {
+
+  & {
+    background-color: #ececec;
+    padding: 30px;
+
+    &--two-per-row {
+      @include span(8 of 16 );
+
+      &:nth-child(2n) {
+        @include omega;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
