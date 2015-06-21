@@ -8,7 +8,7 @@
 		meta(itemprop="url", content="{{ shop.url }}{{ product.url }}")
 		meta(itemprop="image", content="{{ product | img_url: 'grande' }}")
 
-		form(action="/cart/add", method="post", enctype="multipart/form-data")
+		form(action="/cart/", method="post", enctype="multipart/form-data")
 
 			div.single-product__image-wrap
 
