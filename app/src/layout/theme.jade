@@ -8,6 +8,13 @@ html(lang="en")
 		link(rel="canonical", href="{{ canonical_url }}")
 		meta(name="viewport", content="width=device-width, initial-scale=1")
 
+		link(rel='apple-touch-icon', sizes='180x180', href="{{ 'apple-touch-icon.png' | asset_url }}")
+		link(rel='icon', type='image/png', href="{{ 'favicon-96x96.png' | asset_url }}", sizes='96x96')
+		meta(name='msapplication-TileColor', content='#ec008c')
+		meta(name='msapplication-TileImage', content="{{ 'mstile-310x310 | asset_url }}")
+
+
+
 		| {% include 'open-graph-tags' %}
 		| {% include 'twitter-card' %}
 		| {{ content_for_header }}
