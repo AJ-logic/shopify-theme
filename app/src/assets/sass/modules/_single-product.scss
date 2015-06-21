@@ -41,5 +41,27 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    float: left;
+    margin: 40px 0 0;
+    border: 1px solid #000;
+    height: 50px;
+    padding: 0 50px;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    background-color: transparent;
+    letter-spacing: 1px;
+    transition: .3s ease;
+
+    &:hover {
+      border: 1px solid  #ec008c;
+      background-color: #ec008c;
+      color: #fff;
+    }
   }
 }

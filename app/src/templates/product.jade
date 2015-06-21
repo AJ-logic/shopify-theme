@@ -70,8 +70,6 @@
 				div.single-product__description(itemprop="description")
 					| {{ product.description }}
 
-
-
 				| {% assign hide_default_title = false %}
 				| {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
 				|	{% assign hide_default_title = true %}
@@ -93,8 +91,8 @@
 				//- 	p
 				//- 		| {{ '%s is back-ordered. We will ship it separately in 10 to 15 days.' | replace: '%s', '<span id="selected-variant"></span>' }}
 
-				div
-					input(type="submit", name="add", id="add", class="primary button", value="{{ add_to_cart | escape }}")
+
+				button.single-product__button(type="submit", name="add", id="add", class="primary button", value="{{ add_to_cart | escape }}") Add to cart
 
 
 				| {% if collection %}
