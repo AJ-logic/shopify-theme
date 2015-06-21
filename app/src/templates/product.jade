@@ -76,6 +76,9 @@
 				|	{% assign hide_default_title = true %}
 				| {% endif %}
 
+				| {% if product.available and product.variants.size > 1 %}
+				| {% include 'swatch' with 'Size' %}
+				| {% endif %}
 
 				div(class="{% if hide_default_title %} hidden{% endif %}")
 					select(id="product-select", name="id")
