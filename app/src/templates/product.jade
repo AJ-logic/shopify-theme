@@ -36,19 +36,6 @@
 
 				h1.single-product__title(itemprop="name")
 					| {{ product.title }}
-
-				| {% assign product_vendor_handle = product.vendor | handle %}
-				| {% if collections[product_vendor_handle].handle == product_vendor_handle %}
-				| 	{% assign vendor_url = collections[product_vendor_handle].url %}
-				| {% else %}
-				| 	{% assign vendor_url = product.vendor | url_for_vendor %}
-				| {% endif %}
-				h2.single-product__brand(itemprop="brand")
-					| {{ product.vendor | link_to: vendor_url }}
-
-				div.single-product__description(itemprop="description")
-					| {{ product.description }}
-
 				div(data-id="{{ product.id }}")
 					| {{ product.metafields.spr.reviews }}
 
@@ -70,6 +57,20 @@
 						span(itemprop="price")
 							| {{ variant.price | money }}
 						| {% endif %}
+
+				| {% assign product_vendor_handle = product.vendor | handle %}
+				| {% if collections[product_vendor_handle].handle == product_vendor_handle %}
+				| 	{% assign vendor_url = collections[product_vendor_handle].url %}
+				| {% else %}
+				| 	{% assign vendor_url = product.vendor | url_for_vendor %}
+				| {% endif %}
+				//- h2.single-product__brand(itemprop="brand")
+				//- 	| {{ product.vendor | link_to: vendor_url }}
+
+				div.single-product__description(itemprop="description")
+					| {{ product.description }}
+
+
 
 				| {% assign hide_default_title = false %}
 				| {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}

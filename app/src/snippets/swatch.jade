@@ -43,7 +43,7 @@ script.
 
 | {% else %}
 div(class="swatch clearfix", data-option-index="{{ option_index }}")
-	.header
+	.swatch__title
 		| {{ swatch }}
 	| {% assign values = '' %}
 	| {% for variant in product.variants %}
@@ -52,19 +52,19 @@ div(class="swatch clearfix", data-option-index="{{ option_index }}")
 	|		{% assign values = values | join: ',' %}
 	|		{% assign values = values | append: ',' | append: value %}
 	|		{% assign values = values | split: ',' %}
-	div(data-value="{{ value | escape }}", class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}")
+	div(data-value="{{ value | escape }}", class="swatch__element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}")
 		|			{% if is_color %}
 		div(class="tooltip")
 			| {{ value }}
 		|		{% endif %}
-		input(id="swatch-{{ option_index }}-{{ value | handle }}", type="radio", name="option-{{ option_index }}", value="{{ variant.id }}", checked="{% if forloop.first %} checked{% endif %}", disabled="{% unless variant.available %}disabled{% endunless %}")
+		input.swatch__input(id="swatch-{{ option_index }}-{{ value | handle }}", type="radio", name="option-{{ option_index }}", value="{{ variant.id }}", checked="{% if forloop.first %} checked{% endif %}", disabled="{% unless variant.available %}disabled{% endunless %}")
 		|		{% if is_color %}
-		label(for="swatch-{{ option_index }}-{{ value | handle }}", style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})")
-			img(class="crossed-out", src="{{ 'soldout.png' | asset_url }}")
+		label.swatch__label(for="swatch-{{ option_index }}-{{ value | handle }}", style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})")
+			//- img(class="crossed-out", src="{{ 'soldout.png' | asset_url }}")
 		|		{% else %}
-		label(for="swatch-{{ option_index }}-{{ value | handle }}")
+		label.swatch__label(for="swatch-{{ option_index }}-{{ value | handle }}")
 			|			{{ value }}
-			img(class="crossed-out", src="{{ 'soldout.png' | asset_url }}")
+			//- img(class="crossed-out", src="{{ 'soldout.png' | asset_url }}")
 		|		{% endif %}
 		| {% endunless %}
 		| {% if variant.available %}

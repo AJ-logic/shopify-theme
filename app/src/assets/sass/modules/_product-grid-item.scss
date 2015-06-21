@@ -1,21 +1,58 @@
 .product-grid-item {
 
   & {
-    background-color: #ececec;
-    padding: 30px;
 
     &--two-per-row {
-      @include span(8 of 16 );
+      @include span(8 of 16 4 );
 
       &:nth-child(2n) {
         @include omega;
       }
     }
+
+    &:hover {
+
+      .product-grid-item__image {
+        transform: scale(1.4);
+      }
+
+      .product-grid-item__title-price {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__image-wrap {
+    overflow: hidden;
   }
 
   &__image {
     display: block;
     width: 100%;
     height: auto;
+    transition: transform .5s ease;
+  }
+
+  &__title-price {
+    text-decoration: none;
+    color: #000;
+    font-weight: 400;
+    width: 100%;
+    display: block;
+    line-height: 1.5;
+    padding: 10px;
+  }
+
+  &__title {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: $headerfont;
+  }
+
+  &__price {
+    font-style: italic;
+    font-size: 14px;
   }
 }

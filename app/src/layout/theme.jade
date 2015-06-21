@@ -13,8 +13,6 @@ html(lang="en")
 		meta(name='msapplication-TileColor', content='#ec008c')
 		meta(name='msapplication-TileImage', content="{{ 'mstile-310x310 | asset_url }}")
 
-
-
 		| {% include 'open-graph-tags' %}
 		| {% include 'twitter-card' %}
 		| {{ content_for_header }}
@@ -35,30 +33,9 @@ html(lang="en")
 			jQuery('html').removeClass('no-js').addClass('js');
 
 	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}page-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
+		| {% include 'cart-small' %}
 		| {% if template == 'index' %}
-		.home-leader(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
-
-			| {% include 'social-links' %}
-			.site-cart
-				.container
-					a(href="/cart")
-						//- img(src="{{ 'cart.svg' | asset_url }}")
-						| {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})
-						| cart
-
-					| {% if shop.customer_accounts_enabled %}
-
-					| 	{% if customer %}
-					| 		Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
-					| 	{% else %}
-					| 		{{ 'Log in' | customer_login_link }}
-					| 	{% if shop.customer_accounts_optional %}
-					| 		or {{ 'Create an account' | customer_register_link }}
-					| 	{% endif %}
-					| {% endif %}
-
-					| {% endif %}
-
+		.hero(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
 			//- | {% if settings.use_logo %}
 
 			//- a(href='/')
@@ -78,20 +55,26 @@ html(lang="en")
 					| {% include 'site-nav' %}
 					//- | {% include 'site-header-search' %}
 
+			.hero__content
+				.hero__content-container
+					h2.hero__title Shop the brand new CFYE T-Collection!
+					a.hero__cta(href='#') Show now!
+
 		| {% else %}
-		.site-header
-			.container.site-header__container
-				h1.site-header__title
-					a(href='/')
-						img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
-				| {% include 'site-nav' %}
-				//- | {% include 'site-header-search' %}
+		.hero.hero--small(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
+			.site-header
+				.container.site-header__container
+					h1.site-header__title
+						a(href='/')
+							img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
+					| {% include 'site-nav' %}
+					//- | {% include 'site-header-search' %}
 
 		| {% endif %}
 
 	#main.site-content(role="main")
-		.container
-			| {{ content_for_layout }}
+
+		| {{ content_for_layout }}
 
 
 	footer.site-footer

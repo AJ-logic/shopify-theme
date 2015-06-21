@@ -1,12 +1,12 @@
 .single-product {
 
   & {
-
+    margin: 100px 0;
+    overflow: hidden;
   }
 
   &__image-wrap {
-    width: 50%;
-    float: left;
+    @include span(6 of 12);
   }
 
   &__image {
@@ -14,8 +14,8 @@
   }
 
   &__content-wrap {
-    width: 50%;
-    float: right;
+    @include span(last 5 of 12);
+    padding-left: 20px;
   }
 
   &__brand {
@@ -31,13 +31,15 @@
   }
 
   &__title {
-    font-weight: 300;
-    text-transform: uppercase;
-    margin: 0;
+    font-weight: 400;
+    font-size: 28px;
+    margin: 0 0 10px;
+    width: 55%;
   }
 
   &__description {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1.6;
   }
 }

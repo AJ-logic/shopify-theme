@@ -1,0 +1,19 @@
+.site-cart
+	.container
+		a(href="/cart")
+			//- img(src="{{ 'cart.svg' | asset_url }}")
+			| {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})
+			| cart
+
+		| {% if shop.customer_accounts_enabled %}
+
+		| 	{% if customer %}
+		| 		Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+		| 	{% else %}
+		| 		{{ 'Log in' | customer_login_link }}
+		| 	{% if shop.customer_accounts_optional %}
+		| 		or {{ 'Create an account' | customer_register_link }}
+		| 	{% endif %}
+		| {% endif %}
+
+		| {% endif %}

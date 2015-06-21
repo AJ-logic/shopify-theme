@@ -1,18 +1,64 @@
 | {% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
 | {% assign page = pages[settings.homepage_page] %}
 div
-  | {{ page.content }}
+	//- | {{ page.content }}
 | {% endunless %}
 
-| {% unless settings.homepage_collection == blank or collections[settings.homepage_collection].empty? %}
-| {% assign collection = collections[settings.homepage_collection] %}
-ul.product-grid
-  | {% for product in collection.products %}
-  | {% include 'product-grid-item' with 'product-grid-item--two-per-row' %}
-  | {% else %}
-  li
-    p
-      | You have no products in your {{ collections[settings.homepage_collection].title }} collection.
-      a(href='http://www.shopify.com/admin/collections') Add some
-  | {% endfor %}
-| {% endunless %}
+.hero-row
+	.hero-row__item
+		a.hero-row__item-link(href='#')
+			.hero-row__item-content-wrap
+				.hero-row__item-content-inner
+					h3.hero-row__item-title CFYE<br/>x<br/>Meneer de<br/>Zwart
+					//- .hero-row__item-button Shop now
+		img.hero-row__image(src="{{ 'home-row-01.jpg' | asset_url }}")
+	.hero-row__item
+		a.hero-row__item-link(href='#')
+			.hero-row__item-content-wrap
+				.hero-row__item-content-inner
+					h3.hero-row__item-title Free<br/>stickerpack!
+		img.hero-row__image(src="{{ 'home-row-02.jpg' | asset_url }}")
+	.hero-row__item
+		a.hero-row__item-link(href='#')
+			.hero-row__item-content-wrap
+				.hero-row__item-content-inner
+					h3.hero-row__item-title Visit our<br/>website
+		img.hero-row__image(src="{{ 'home-row-03.jpg' | asset_url }}")
+
+//- | {% unless settings.homepage_collection == blank or collections[settings.homepage_collection].empty? %}
+//- | {% assign collection = collections[settings.homepage_collection] %}
+//- ul.product-grid
+//- 	| {% for product in collection.products %}
+//- 	| {% include 'product-grid-item' with 'product-grid-item--two-per-row' %}
+//- 	| {% else %}
+//- 	li
+//- 	p
+//- 		| You have no products in your {{ collections[settings.homepage_collection].title }} collection.
+//- 		a(href='http://www.shopify.com/admin/collections') Add some
+//- 	| {% endfor %}
+//- | {% endunless %}
+
+.site-newsletter
+	.site-newsletter__inner
+		.container
+			h3.site-newsletter__title Sign up to our newsletter<br/>and stay up to date!
+			// Begin MailChimp Signup Form
+			#mc_embed_signup
+				form#mc-embedded-subscribe-form.site-newsletter__form.validate(action="//cfye.us2.list-manage.com/subscribe/post?u=9017bc446315b0e178f438760&id=ddc16c6dc2", method="post", name="mc-embedded-subscribe-form", target="_blank", novalidate="")
+					#mc_embed_signup_scroll
+						.mc-field-group
+							//- label(for="mce-EMAIL")
+							//- 	| Email Address
+							input#mce-EMAIL.required.email.site-newsletter__input(type="email", value="", name="EMAIL", placeholder='Your email address')
+							input#mc-embedded-subscribe.button.site-newsletter__button(type="submit", value="Subscribe", name="subscribe")
+						//- p
+						//- 	a(href="http://us2.campaign-archive2.com/home/?u=9017bc446315b0e178f438760&id=ddc16c6dc2", title="View previous campaigns") View previous campaigns.
+						#mce-responses
+							#mce-error-response.response(style="display:none")
+							#mce-success-response.response(style="display:none")
+						// real people should not fill this in and expect good things - do not remove this or risk form bot signups
+						div(style="position: absolute; left: -5000px;")
+							input(type="text", name="b_9017bc446315b0e178f438760_ddc16c6dc2", tabindex="-1", value="")
+
+
+			// End mc_embed_signup
