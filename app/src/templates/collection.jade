@@ -2,7 +2,7 @@
 | {% assign numbers = 'zero, one, two, three, four, five, six' | split: ',' %}
 | {% assign products_per_row = settings.products_per_row | times: 1 %}
 | {% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
-.hero.hero--small(style="background-image: url( {{ 'collection-leader.jpg' | asset_url }} );")
+.hero.hero--small.hero--align-bottom(style="background-image: url( {{ 'collection-hero.jpg' | asset_url }} );")
 	.hero__content
 		.hero__content-container
 			h1.hero__title.hero__title--page {{ collection.title }}
