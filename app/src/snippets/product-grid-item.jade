@@ -28,7 +28,7 @@ li.product-grid-item(class="{{ product-grid-item }}{% unless product.available %
 	div.product-grid-item__meta-wrap
 		a.product-grid-item__title-price(href="{{ product.url | within: collection }}")
 			span.product-grid-item__title
-				| {{ product.title }} -&nbsp;
+				| {{ product.title }}
 
 			span.product-grid-item__price
 				| {% if product.price_varies %}From{% endif %}
@@ -52,6 +52,8 @@ li.product-grid-item(class="{{ product-grid-item }}{% unless product.available %
 //- cycle element in a rendered view, you'll need to name all of them.
 //- The cycle element is documented here: http://docs.shopify.com/themes/liquid-basics/logic#cycle
 //- {% endcomment %}
+
+
 
 | {% if product-grid-item == 'six-per-row' %}
 | {% cycle 'clear': '', '', '', '', '', '<div style="clear:both"></div>' %}

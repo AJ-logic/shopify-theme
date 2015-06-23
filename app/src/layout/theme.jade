@@ -61,14 +61,14 @@ html(lang="en")
 					a.hero__cta(href='#') See the collection
 
 		| {% else %}
-		.hero.hero--small(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
-			.site-header
-				.container.site-header__container
-					h1.site-header__title
-						a(href='/')
-							img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
-					| {% include 'site-nav' %}
-					//- | {% include 'site-header-search' %}
+		//- .hero.hero--small(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
+		.site-header
+			.container.site-header__container
+				h1.site-header__title
+					a(href='/')
+						img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
+				| {% include 'site-nav' %}
+				//- | {% include 'site-header-search' %}
 
 		| {% endif %}
 

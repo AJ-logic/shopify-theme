@@ -17,3 +17,30 @@
 		| {% endif %}
 
 		| {% endif %}
+	//- table(data-cart-view="data-cart-view")
+	//- 	thead
+	//- 		tr
+	//- 			th Item
+	//- 			th Price
+	//- 			th(colspan="2") Qty
+	//- 			th Line Price
+	//- 	tbody
+	//- 		tr(rv-each-item="cart.items")
+	//- 			td
+	//- 				strong(rv-text="item.title")
+	//- 				ul(rv-hide="item.propertyArray | empty")
+	//- 					li(rv-each-property="item.propertyArray < properties", rv-text="property.value")
+	//- 			td(rv-text="item.price | money")
+	//- 			td
+	//- 				a(href="#", rv-data-cart-update="index | plus 1", rv-data-cart-quantity="item.quantity | minus 1") -
+	//- 				span(rv-text="item.quantity")
+	//- 				a(href="#", rv-data-cart-update="index | plus 1", rv-data-cart-quantity="item.quantity | plus 1") +
+	//- 			td
+	//- 				a(href="#", rv-data-cart-remove="index | plus 1") &#215;
+	//- 			td(rv-text="item.line_price | money")
+	//- 		tr(rv-show="cart.item_count | lt 1")
+	//- 			td(colspan="5") You don&#39;t have any items in your cart.
+	//- 	tfoot(rv-show="cart.item_count | gt 0")
+	//- 		tr
+	//- 			td(colspan="4")
+	//- 			td(rv-text="cart.total_price | money")

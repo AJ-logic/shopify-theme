@@ -13,7 +13,7 @@
     &:hover {
 
       .product-grid-item__image {
-        transform: scale(1.4);
+        transform: scale(1.1);
       }
 
       .product-grid-item__title-price {
@@ -40,6 +40,7 @@
     width: 100%;
     display: block;
     line-height: 1.5;
+    text-align: center;
     padding: 10px;
   }
 
