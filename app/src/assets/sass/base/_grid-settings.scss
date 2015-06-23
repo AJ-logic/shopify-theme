@@ -5,3 +5,8 @@
 .container {
   @include container(1200px);
 }
+
+.site-content {
+  height: 100%;
+  padding-top: 60px;
+}

@@ -4,7 +4,7 @@
     width: 100%;
     height: 80%;
     background-size: cover;
-    background-position: top;
+    background-position: center;
     position: relative;
 
     &:before {
@@ -46,6 +46,10 @@
     font-weight: 300;
     color: #fff;
     font-size: 44px;
+
+    &--page {
+
+    }
   }
 
   &__cta {

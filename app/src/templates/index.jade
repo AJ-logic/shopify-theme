@@ -1,9 +1,12 @@
 | {% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
 | {% assign page = pages[settings.homepage_page] %}
-div
-	//- | {{ page.content }}
+//- | {{ page.content }}
 | {% endunless %}
-
+.hero(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
+	.hero__content
+		.hero__content-container
+			h2.hero__title Shop the brand new CFYE T-Collection!
+			a.hero__cta(href='#') See the collection
 .hero-row
 	.hero-row__item
 		a.hero-row__item-link(href='#')
@@ -25,18 +28,18 @@ div
 					h3.hero-row__item-title Visit our<br/>website
 		img.hero-row__image(src="{{ 'home-row-03.jpg' | asset_url }}")
 
-//- | {% unless settings.homepage_collection == blank or collections[settings.homepage_collection].empty? %}
-//- | {% assign collection = collections[settings.homepage_collection] %}
-//- ul.product-grid
-//- 	| {% for product in collection.products %}
-//- 	| {% include 'product-grid-item' with 'product-grid-item--two-per-row' %}
-//- 	| {% else %}
-//- 	li
-//- 	p
-//- 		| You have no products in your {{ collections[settings.homepage_collection].title }} collection.
-//- 		a(href='http://www.shopify.com/admin/collections') Add some
-//- 	| {% endfor %}
-//- | {% endunless %}
+	//- | {% unless settings.homepage_collection == blank or collections[settings.homepage_collection].empty? %}
+	//- | {% assign collection = collections[settings.homepage_collection] %}
+	//- ul.product-grid
+	//- 	| {% for product in collection.products %}
+	//- 	| {% include 'product-grid-item' with 'product-grid-item--two-per-row' %}
+	//- 	| {% else %}
+	//- 	li
+	//- 	p
+	//- 		| You have no products in your {{ collections[settings.homepage_collection].title }} collection.
+	//- 		a(href='http://www.shopify.com/admin/collections') Add some
+	//- 	| {% endfor %}
+	//- | {% endunless %}
 
 .site-newsletter
 	.site-newsletter__inner
