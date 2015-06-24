@@ -3,17 +3,22 @@
   & {
 
     &--two-per-row {
-      @include span(8 of 16 4 );
+      @include span(8 of 16 0);
+      height: 400px;
+      padding-top: 10px;
+      border-right: 1px solid #999;
+      border-bottom: 1px solid #999;
 
       &:nth-child(2n) {
         @include omega;
+        border-right: none;
       }
     }
 
     &:hover {
 
       .product-grid-item__image {
-        transform: scale(1.1);
+        // transform: scale(1.1);
       }
 
       .product-grid-item__title-price {
@@ -24,12 +29,15 @@
 
   &__image-wrap {
     overflow: hidden;
+    width: 100%;
+    height: auto;
   }
 
   &__image {
     display: block;
-    width: 100%;
-    height: auto;
+    height: 320px;
+    width: auto;
+    margin: 0 auto;
     transition: transform .5s ease;
   }
 
@@ -45,14 +53,13 @@
 
   &__title {
     display: block;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: uppercase;
     font-weight: 700;
     font-family: $headerfont;
   }
 
   &__price {
-    font-style: italic;
     font-size: 14px;
   }
 }

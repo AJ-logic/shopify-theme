@@ -1,16 +1,17 @@
 .site-nav {
 
   & {
-    height: 60px;
-    float: right;
-    padding-left: 90px;
     font-family: $headerfont;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   &__list {
     list-style: none;
     margin: 0;
     padding: 0;
+    padding-left: 20px;
   }
 
   &__item {

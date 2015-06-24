@@ -34,7 +34,7 @@ html(lang="en")
 
 	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}page-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
 		| {% include 'cart-small' %}
-		| {% if template == 'index' %}
+
 
 		//- | {% if settings.use_logo %}
 
@@ -48,30 +48,20 @@ html(lang="en")
 		//- | {{ shop.name }}
 		//- | {% endif %}
 		.site-header
-			.container.site-header__container
-				h1.site-header__title
-					a(href='/')
-						img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
-				| {% include 'site-nav' %}
-				//- | {% include 'site-header-search' %}
 
-		| {% else %}
-		//- .hero.hero--small(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
-		.site-header
-			.container.site-header__container
-				h1.site-header__title
-					a(href='/')
-						img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
-				| {% include 'site-nav' %}
-				//- | {% include 'site-header-search' %}
+			h1.site-header__title
+				a(href='/')
+					img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
+			| {% include 'site-nav' %}
+			//- | {% include 'site-header-search' %}
 
-		| {% endif %}
+
 
 	#main.site-content(role="main")
 
 		| {{ content_for_layout }}
 
-
+	| {% if template == 'index' %}
 	footer.site-footer
 		.container
 			| {% if linklists.footer.links.size > 0 %}
@@ -92,5 +82,6 @@ html(lang="en")
 			p.
 				Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}.
 
-		| {{ 'script.min.js'  | asset_url | script_tag }}
+	| {{% endif %}}
+	| {{ 'script.min.js'  | asset_url | script_tag }}
 

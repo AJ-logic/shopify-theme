@@ -1,21 +1,28 @@
 .single-product {
 
   & {
-    margin: 100px 0;
     overflow: hidden;
+    height: 100%;
   }
 
+  &__form {
+    height: 100%;
+  }
   &__image-wrap {
-    @include span(6 of 12);
+    @include span(8 of 12 0);
   }
 
   &__image {
-
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   &__content-wrap {
-    @include span(last 5 of 12);
-    padding-left: 20px;
+    @include span(last 4 of 12 0);
+    height: 100%;
+    border-left: 1px solid #999;
+    padding: 60px 20px 0;
   }
 
   &__brand {

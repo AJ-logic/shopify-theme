@@ -21,9 +21,9 @@
 | {% endif %}
 
 li.product-grid-item(class="{{ product-grid-item }}{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}{% if product-grid-item == 'four-per-row' %}{% cycle 'last': '', '', '', ' last-in-row' %}{% elsif product-grid-item == 'three-per-row' %}{% cycle 'last': '', '', ' last-in-row' %}{% endif %} centered")
-	div.product-grid-item__image-wrap
-		a.product-grid-item__image-link(href="{{ product.url | within: collection }}")
-			img.product-grid-item__image(src="{{ product | img_url: 'grande' }}", alt="{{ product.featured_image.alt | escape }}")
+
+	a.product-grid-item__image-link(href="{{ product.url | within: collection }}")
+		img.product-grid-item__image(src="{{ product | img_url: 'grande' }}", alt="{{ product.featured_image.alt | escape }}")
 
 	div.product-grid-item__meta-wrap
 		a.product-grid-item__title-price(href="{{ product.url | within: collection }}")
