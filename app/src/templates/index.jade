@@ -1,5 +1,6 @@
 | {% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
 | {% assign page = pages[settings.homepage_page] %}
+
 //- | {{ page.content }}
 | {% endunless %}
 .hero(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
