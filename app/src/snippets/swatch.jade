@@ -57,7 +57,7 @@ div(class="swatch clearfix", data-option-index="{{ option_index }}")
 		div(class="tooltip")
 			| {{ value }}
 		|		{% endif %}
-		input.swatch__input(id="swatch-{{ option_index }}-{{ value | handle }}", type="radio", name="option-{{ option_index }}", value="{{ variant.id }}", checked="{% if forloop.first %} checked{% endif %}", disabled="{% unless variant.available %}disabled{% endunless %}")
+		input.swatch__input(id="swatch-{{ option_index }}-{{ value | handle }}", type="radio", name="option-{{ option_index }}", value="{{ value | escape }}", checked="{% if forloop.first %} checked{% endif %}", disabled="{% unless variant.available %}disabled{% endunless %}")
 		|		{% if is_color %}
 		label.swatch__label(for="swatch-{{ option_index }}-{{ value | handle }}", style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})")
 			//- img(class="crossed-out", src="{{ 'soldout.png' | asset_url }}")
