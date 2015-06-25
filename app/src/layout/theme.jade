@@ -57,31 +57,30 @@ html(lang="en")
 
 
 
-	#main.site-content(role="main")
+		#main.site-content(role="main")
 
-		| {{ content_for_layout }}
+			| {{ content_for_layout }}
 
-	| {% if template == 'index' %}
-	footer.site-footer
-		.container
-			| {% if linklists.footer.links.size > 0 %}
-			ul.site-footer__menu
-				| 	{% for link in linklists.footer.links %}
-				li.site-footer__menu-item
-					a.site-footer__menu-link(href="{{ link.url }}", title="{{ link.title }}", class="{% if link.active %}active{% endif %}")
-						| {{ link.title }}
-				| 	{% endfor %}
-			| {% endif %}
 
-			| {% unless shop.enabled_payment_types == empty %}
+		//- footer.site-footer
+		//- 	.container
+		//- 		| {% if linklists.footer.links.size > 0 %}
+		//- 		ul.site-footer__menu
+		//- 			| 	{% for link in linklists.footer.links %}
+		//- 			li.site-footer__menu-item
+		//- 				a.site-footer__menu-link(href="{{ link.url }}", title="{{ link.title }}", class="{% if link.active %}active{% endif %}")
+		//- 					| {{ link.title }}
+		//- 			| 	{% endfor %}
+		//- 		| {% endif %}
 
-			| 	{% for type in shop.enabled_payment_types %}
-			img(width="40", src="{{ type | payment_type_img_url }}")
-			| 	{% endfor %}
-			| {% endunless %}
-			p.
-				Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}.
+		//- 		| {% unless shop.enabled_payment_types == empty %}
 
-	| {{% endif %}}
-	| {{ 'script.min.js'  | asset_url | script_tag }}
+		//- 		| 	{% for type in shop.enabled_payment_types %}
+		//- 		img(width="40", src="{{ type | payment_type_img_url }}")
+		//- 		| 	{% endfor %}
+		//- 		| {% endunless %}
+		//- 		p.
+		//- 			Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}.
+
+		| {{ 'script.min.js'  | asset_url | script_tag }}
 
