@@ -62,7 +62,7 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 			| {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
 			| {% assign hide_default_title = true %}
 			| {% endif %}
-			button.single-product__button(type="submit", name="add", id="add", class="primary button", value="{{ add_to_cart | escape }}") Add to cart
+			button.single-product__button(type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}") Add to cart
 			| {% if collection %}
 			|   {% if collection.previous_product or collection.next_product %}
 			div
@@ -132,7 +132,9 @@ script.
 			onVariantSelected: selectCallback,
 			enableHistoryState: true
 		});
-		$('.single-option-selector:eq(0)').val("m").trigger('change');
+
+		$('.single-option-selector:eq(0)').val("l").trigger('change');
+
 		// Add label if only one product option and it isn't 'Title'.
 		{% if product.options.size == 1 and product.options.first != 'Title' %}
 		$('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
