@@ -79,5 +79,15 @@ html(lang="en")
 		//-     p.
 		//-       Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}.
 
+		script.
+			jQuery(function() {
+				jQuery('.swatch :radio').change(function() {
+					var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+					var optionValue = jQuery(this).val();
+					var productForm = jQuery(this).closest('form');
+					jQuery(this).closest('form').find('.single-option-selector').eq(optionIndex).val(optionValue).trigger('change');
+				});
+			});
+
 		| {{ 'script.min.js'  | asset_url | script_tag }}
 
