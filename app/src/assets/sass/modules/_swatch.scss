@@ -27,6 +27,7 @@
     cursor: pointer;
     transition: all .3s ease;
     border: 1px solid #ccc;
+    position: relative;
 
     &:hover {
       border: 1px solid #666;
@@ -50,6 +51,34 @@
       border: 1px solid #ec008c;
       background-color: #ec008c;
       color: #fff;
+    }
+
+    &:disabled+label {
+      color: #ccc;
+      cursor: default;
+
+      &:before,
+      &:after {
+        content: '';
+        height: 55px;
+        width: 1px;
+        background-color: #ccc;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      &:after {
+        transform: rotate(-45deg);
+      }
+
+      &:hover {
+        border: 1px solid  #ccc;
+      }
     }
   }
 }
