@@ -34,7 +34,6 @@ html(lang="en")
 
 	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}page-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
 		| {% include 'cart-small' %}
-		| a
 
 		//- | {% if settings.use_logo %}
 
