@@ -1,0 +1,96 @@
+| {% comment %}
+| This snippet provides the default handlebars.js templates for
+| the ajax cart plugin. Use the raw liquid tags to keep the
+| handlebar.js template tags as available hooks.
+| {% endcomment %}
+
+script#CartTemplate(type='text/template')
+	| {% raw %}
+	form.cart(action='/cart', method='post', novalidate='')
+		.ajaxcart__inner
+			| {{#items}}
+			.ajaxcart__product
+				.ajaxcart__row(data-line='{{line}}')
+					.grid
+						.grid__item.one-quarter
+							a.ajaxcart__product-image(href='{{url}}')
+								img(src='{{img}}', alt='')
+						.grid__item.three-quarters
+							p
+								a.ajaxcart__product-name(href='{{url}}')
+									| {{name}}
+								| {{#if variation}}
+								span.ajaxcart__product-meta {{variation}}
+								| {{/if}}
+								| {{#properties}}
+								| {{#each this}}
+								|   {{#if this}}
+								span.ajaxcart__product-meta
+									| {{@key}}: {{this}}
+								|   {{/if}}
+								| {{/each}}
+								| {{/properties}}
+								| {% endraw %}{% if settings.cart_vendor_enable %}{% raw %}
+								span.ajaxcart__product-meta
+									| {{ vendor }}
+								| {% endraw %}{% endif %}{% raw %}
+
+							.grid--full.display-table
+								.grid__item.display-table-cell.one-half
+									.ajaxcart__qty
+										button.ajaxcart__qty-adjust.ajaxcart__qty--minus.icon-fallback-text(type='button', data-id='{{id}}', data-qty='{{itemMinus}}', data-line='{{line}}')
+											span.icon.icon-minus(aria-hidden='true')
+											span.fallback-text −
+										input.ajaxcart__qty-num(type='text', name='updates[]', value='{{itemQty}}', min='0', data-id='{{id}}', data-line='{{line}}', aria-label='quantity', pattern='[0-9]*')
+										button.ajaxcart__qty-adjust.ajaxcart__qty--plus.icon-fallback-text(type='button', data-id='{{id}}', data-line='{{line}}', data-qty='{{itemAdd}}')
+											span.icon.icon-plus(aria-hidden='true')
+											span.fallback-text +
+								.grid__item.display-table-cell.one-half.text-right
+									| {{{price}}}
+			| {{/items}}
+
+			| {% endraw %}{% if settings.cart_notes_enable %}{% raw %}
+			div
+				label(for='CartSpecialInstructions')
+					| {% endraw %}{{ 'cart.general.note' | t }}{% raw %}
+					textarea#CartSpecialInstructions.input-full(name='note') {{ note }}
+			| {% endraw %}{% endif %}{% raw %}
+
+		.ajaxcart__footer
+			.grid--full
+				.grid__item.two-thirds
+					p {% endraw %}{{ 'cart.general.subtotal' | t }}{% raw %}
+				.grid__item.one-third.text-right
+					p {{{totalPrice}}}
+			p.text-center {% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}
+			button.btn--secondary.btn--full.cart__checkout(type='submit', name='checkout')
+				| {% endraw %}{{ 'cart.general.checkout' | t }}{% raw %} →
+			|       {% endraw %}{% if additional_checkout_buttons %}
+			.additional_checkout_buttons {{ content_for_additional_checkout_buttons }}
+			|       {% endif %}{% raw %}
+
+	| {% endraw %}
+
+script#AjaxQty(type='text/template')
+	| {% raw %}
+	.ajaxcart__qty
+		button.ajaxcart__qty-adjust.ajaxcart__qty--minus.icon-fallback-text(type='button', data-id='{{id}}', data-qty='{{itemMinus}}')
+			span.icon.icon-minus(aria-hidden='true')
+			span.fallback-text −
+		input.ajaxcart__qty-num(type='text', value='{{itemQty}}', min='0', data-id='{{id}}', aria-label='quantity', pattern='[0-9]*')
+		button.ajaxcart__qty-adjust.ajaxcart__qty--plus.icon-fallback-text(type='button', data-id='{{id}}', data-qty='{{itemAdd}}')
+			span.icon.icon-plus(aria-hidden='true')
+			span.fallback-text +
+	| {% endraw %}
+
+script#JsQty(type='text/template')
+	| {% raw %}
+	.js-qty
+		button.js-qty__adjust.js-qty__adjust--minus.icon-fallback-text(type='button', data-id='{{id}}', data-qty='{{itemMinus}}')
+			span.icon.icon-minus(aria-hidden='true')
+			span.fallback-text −
+		input.js-qty__num(type='text', value='{{itemQty}}', min='1', data-id='{{id}}', aria-label='quantity', pattern='[0-9]*', name='{{inputName}}', id='{{inputId}}')
+		button.js-qty__adjust.js-qty__adjust--plus.icon-fallback-text(type='button', data-id='{{id}}', data-qty='{{itemAdd}}')
+			span.icon.icon-plus(aria-hidden='true')
+			span.fallback-text +
+	| {% endraw %}
