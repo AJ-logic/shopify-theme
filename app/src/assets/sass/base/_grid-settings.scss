@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+$tablet:                    768px;
+$desktop-small:             1000px;
+$desktop:                   1200px;
+
+
 .container {
   @include container(1200px);
 }

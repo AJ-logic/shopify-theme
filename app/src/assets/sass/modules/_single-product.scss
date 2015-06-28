@@ -1,16 +1,33 @@
 .single-product {
 
   & {
-    overflow: hidden;
-    height: 100%;
+
+    @include breakpoint($desktop) {
+      height: 100%;
+      overflow: hidden;
+    }
   }
 
   &__form {
-    height: 100%;
+
+    @include breakpoint($desktop) {
+      height: 100%;
+    }
   }
+
   &__image-wrap {
-    @include span(8 of 12 0);
-    height: 100%;
+    width: 100%;
+    height: 480px;
+    float: left;
+    border-bottom: 1px solid #999;
+    margin-bottom: 30px;
+
+    @include breakpoint($desktop) {
+      @include span(8 of 12 0);
+      height: 100%;
+      border-bottom: none;
+      margin-bottom: 0;
+    }
   }
 
   &__image-link {
@@ -29,12 +46,18 @@
   }
 
   &__content-wrap {
-    @include span(last 4 of 12 0);
-    height: 100%;
-    border-left: 1px solid #999;
-    padding: 60px 20px 0;
-    overflow-y: scroll;
-    padding-bottom: 100px;
+    width: 100%;
+    padding: 0 20px 40px;
+    float: left;
+
+    @include breakpoint($desktop) {
+      @include span(last 4 of 12 0);
+      height: 100%;
+      border-left: 1px solid #999;
+      padding: 60px 20px 0;
+      overflow-y: scroll;
+      padding-bottom: 100px;
+    }
   }
 
   &__brand {
@@ -51,17 +74,26 @@
 
   &__title {
     font-weight: 400;
-    font-size: 36px;
     text-transform: uppercase;
     margin: 0 0 10px;
-    width: 50%;
+    font-size: 24px;
+
+    @include breakpoint($desktop) {
+      width: 50%;
+      font-size: 36px;
+    }
   }
 
   &__description {
     font-weight: 300;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
     margin-bottom: 30px;
+
+    @include breakpoint($desktop) {
+      font-size: 16px;
+      line-height: 1.6;
+    }
   }
 
   &__dropdown {
