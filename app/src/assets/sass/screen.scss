@@ -33,9 +33,11 @@
 
 @import 'modules/swatch';
 @import 'modules/collection';
+@import 'modules/cartTable';
 
 // Page
 @import 'pages/page-collection';
+@import 'pages/page-cart';
 
 // State
 @import 'state/is-active-menu';

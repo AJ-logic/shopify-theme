@@ -19,5 +19,9 @@
   &__link {
     text-decoration: none;
     color: #999;
+
+    &:hover {
+      color: #ec008c;
+    }
   }
 }

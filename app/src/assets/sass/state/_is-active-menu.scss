@@ -13,4 +13,8 @@ $menuwidth: 260px;
   .site-content {
     transform: translateX($menuwidth);
   }
+
+  .site-footer {
+    transform: translateX($menuwidth);
+  }
 }

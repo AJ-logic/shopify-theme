@@ -1,10 +1,13 @@
-.container
-	h1 Shopping cart
+.container.page-cart__container
+	.page-cart__bagWrap
+		img.page-cart__bag(src="{{ 'cart-black.svg' | asset_url}}")
+		span.page-cart__itemCount {{ cart.item_count }}
+	h1.page-cart__title Your cart
 
 	| {% if cart.item_count > 0 %}
 
 	form(action='/cart', method='post')
-		table
+		table.cartTable
 			thead
 				tr
 					th Item
@@ -26,12 +29,13 @@
 				|		{% assign continue_shopping_url = collection_url %}
 				|	{% endif %}
 
-				tr
+				tr.cartTable__row
 					td
-						a(href="{{ collection_url }}{{ item.url }}")
-							img(src="{{ item | img_url: 'compact' }}",  alt="{{ item.title | escape }}")
-						h2
-							a(href="{{ collection_url }}{{ item.url }}")
+						a.cartTable__imageLink(href="{{ collection_url }}{{ item.url }}")
+							img.cartTable__image(src="{{ item | img_url: 'compact' }}",  alt="{{ item.title | escape }}")
+					td
+						h2.cartTable__title
+							a.cartTable__titleLink(href="{{ collection_url }}{{ item.url }}")
 								| {{ item.title }}
 
 
@@ -52,40 +56,41 @@
 							| {% endfor %}
 
 						| {% endif %}
-						h3
+						h3.cartTable__vendor
 							| {{ item.vendor }}
 
-					td
+					td.cartTable__price
 						| {{ item.price | money }}
 
 
-					td
+					td.cartTable__quantity
 						input(type="number", name="updates[]", id="updates_{{ item.id }}", class="quantity", value="{{ item.quantity }}")
-					td
+					td.cartTable__total
 						| {{ item.line_price | money }}
-					td
-						a(href="/cart/change?line={{ forloop.index }}&quantity=0").
-							Remove
+					td.cartTable__remove
+						a.cartTable__removeLink(href="/cart/change?line={{ forloop.index }}&quantity=0")
+							i.icon-bin
+
 
 
 			| {% endfor %}
 
-			div
-				h3.
-					Subtotal <em> {{ cart.total_price | money }}
-			a(href="{{ continue_shopping_url }}") Continue shopping
-			span or
-			input(type="submit", name="checkout", value="Check out")
-
-			| {% if additional_checkout_buttons %}
-			p
-				| {{ content_for_additional_checkout_buttons }}
-			| {% endif %}
-
 		div
-			p Special instructions for seller
-			textarea(name="note")
-				| {{ cart.note }}
+			h3.
+				Subtotal <em> {{ cart.total_price | money }}
+		a(href="{{ continue_shopping_url }}") Continue shopping
+		span or
+		input(type="submit", name="checkout", value="Check out")
+
+		| {% if additional_checkout_buttons %}
+		p
+			| {{ content_for_additional_checkout_buttons }}
+		| {% endif %}
+
+	div
+		p Special instructions for seller
+		textarea(name="note")
+			| {{ cart.note }}
 
 	| {% else %}
 
