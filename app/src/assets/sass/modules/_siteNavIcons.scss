@@ -9,4 +9,41 @@
     top: 50%;
     transform: translateY(-50%);
   }
+
+  &__item {
+    text-align: center;
+    margin: 30px 0;
+
+    &--cart {
+      color: #fff;
+    }
+  }
+
+  &__link {
+    color: #fff;
+    display: block;
+    width: 44px;
+    margin: 0 auto;
+    text-decoration: none;
+    position: relative;
+  }
+
+  &__cartImage {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__count {
+    font-family: $headerfont;
+    color: #ec008c;
+    font-size: 18px;
+    z-index: 12;
+    position: absolute;
+    margin: auto;
+    top: 14px;
+    left: 20px;
+    font-weight: 700;
+  }
 }

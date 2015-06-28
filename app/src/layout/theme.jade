@@ -37,17 +37,22 @@ html(lang="en")
 	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}page-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
 		| {% include 'cart-small' %}
 
+		| {% include 'site-nav' %}
+
 		.site-header
 			h1.site-header__title
 				a(href='/')
 					img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
 			ul.siteNavIcons
 				li.siteNavIcons__item
-					#nav-toggle-wrap
-						#nav-toggle.nav-toggle
+					#navToggleWrap
+						#navToggle.navToggle
 							span
-
-			//- | {% include 'site-nav' %}
+				li.siteNavIcons__item.siteNavIcons__item--cart
+					a.siteNavIcons__link(href='#')
+						.siteNavIcons__count
+							| {{ cart.item_count }}
+						img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
 
 		#main.site-content(role="main")
 			| {{ content_for_layout }}
