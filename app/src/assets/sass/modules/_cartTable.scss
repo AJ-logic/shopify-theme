@@ -21,6 +21,17 @@
     }
   }
 
+  tfoot {
+    border: 1px solid #ccc;
+    padding: 10px;
+    line-height: 4;
+
+    th {
+      text-align: left;
+      padding-left: 30px;
+    }
+  }
+
   td {
     padding-left: 30px;
 
@@ -58,6 +69,11 @@
     font-size: 16px;
   }
 
+  &__remove {
+    padding: 0 30px;
+    text-align: right;
+  }
+
   &__removeLink {
     text-decoration: none;
     color: #aaa;
@@ -66,5 +82,20 @@
     &:hover {
       color: darken(#ff0000, 10%);
     }
+  }
+
+  &__total {
+    color: #000;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: $bodyfont;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  &__totalPrice {
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
   }
 }

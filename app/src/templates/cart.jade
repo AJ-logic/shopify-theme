@@ -7,6 +7,15 @@
 	| {% if cart.item_count > 0 %}
 
 	form(action='/cart', method='post')
+		| 	{% assign collection_url = item.product.collections.last.url %}
+		| 	{% if collection_url == '/collections/frontpage' or collection_url == blank %}
+		|		{% assign collection_url = '/collections/all' %}
+		| 	{% endif %}
+
+		.page-cart__buttonWrap.page-cart__buttonWrap--top
+			a.page-cart__button(href="{{ continue_shopping_url }}") Continue shopping
+			input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
+
 		table.cartTable
 			thead
 				tr
@@ -19,12 +28,6 @@
 			tbody
 
 				| {% for item in cart.items %}
-
-				| 	{% assign collection_url = item.product.collections.last.url %}
-				| 	{% if collection_url == '/collections/frontpage' or collection_url == blank %}
-				|		{% assign collection_url = '/collections/all' %}
-				| 	{% endif %}
-
 				| 	{% if forloop.first %}
 				|		{% assign continue_shopping_url = collection_url %}
 				|	{% endif %}
@@ -65,32 +68,38 @@
 
 					td.cartTable__quantity
 						input(type="number", name="updates[]", id="updates_{{ item.id }}", class="quantity", value="{{ item.quantity }}")
-					td.cartTable__total
+					td.cartTable__itemTotal
 						| {{ item.line_price | money }}
 					td.cartTable__remove
 						a.cartTable__removeLink(href="/cart/change?line={{ forloop.index }}&quantity=0")
 							i.icon-bin
-
-
-
 			| {% endfor %}
+			tfoot
+				tr
+					th
+						h3.cartTable__total Subtotal
+					th &nbsp;
+					th &nbsp;
+					th &nbsp;
+					th &nbsp;
+					th.cartTable__totalPrice {{ cart.total_price | money }}
 
-		div
-			h3.
-				Subtotal <em> {{ cart.total_price | money }}
-		a(href="{{ continue_shopping_url }}") Continue shopping
-		span or
-		input(type="submit", name="checkout", value="Check out")
+
+
+		.page-cart__buttonWrap
+			input.page-cart__button.page-cart__button--update(type="submit", name="update", value="Update cart")
+			a.page-cart__button(href="{{ continue_shopping_url }}") Continue shopping
+			input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
 
 		| {% if additional_checkout_buttons %}
 		p
 			| {{ content_for_additional_checkout_buttons }}
 		| {% endif %}
 
-	div
-		p Special instructions for seller
-		textarea(name="note")
-			| {{ cart.note }}
+	//- div
+	//- 	p Special instructions for seller
+	//- 	textarea(name="note")
+	//- 		| {{ cart.note }}
 
 	| {% else %}
 
