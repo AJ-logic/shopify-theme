@@ -7,12 +7,12 @@
 
 | {% if current_tags %}
 h1
-		| {{ blog.title | link_to: blog.url }}
-		span &raquo;
-		| {{ current_tags.first }}
+	| {{ blog.title | link_to: blog.url }}
+	span &raquo;
+	| {{ current_tags.first }}
 | {% else %}
 h1
-		| {{ blog.title }}
+	| {{ blog.title }}
 
 | {% endif %}
 

@@ -49,7 +49,7 @@ html(lang="en")
 						#navToggle.navToggle
 							span
 				li.siteNavIcons__item.siteNavIcons__item--cart
-					{% if cart.item_count == 0 %}
+					| {% if cart.item_count == 0 %}
 					.siteNavIcons__link
 						.siteNavIcons__count
 							| {{ cart.item_count }}

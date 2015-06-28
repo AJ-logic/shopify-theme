@@ -70,11 +70,13 @@
     text-align: left;
     font-size: 14px;
     padding: 10px 14px;
-    transform: translateX(25%);
+    transform: translateX(15%);
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: all .3s ease;
+    transition: all .2s ease;
+    border-left: none;
+    box-shadow: 3px 3px 12px 0px rgba(50, 50, 50, 0.15);
 
     p {
       margin: 0;

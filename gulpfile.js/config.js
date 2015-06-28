@@ -17,7 +17,7 @@ module.exports = {
     source: [
       src_path+'layout/*.jade',
       src_path+'templates/**/*.jade',
-      src_path+'snippets/**/*.jade',
+      src_path+'snippets/**/*.jade'
     ],
     build: build_path,
     base: src_path
