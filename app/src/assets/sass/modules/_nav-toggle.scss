@@ -1,0 +1,125 @@
+$ntbarwidth: 24px;
+$ntarrowwidth: 14px;
+$ntbarheight: 3px;
+
+.nav-toggle {
+
+  & {
+    z-index: 2;
+    width: $ntbarwidth;
+    height: 19px;
+    padding: 8px 0;
+    cursor: pointer;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  span {
+    height: $ntbarheight;
+    display: block;
+    overflow: hidden;
+    text-indent: 100%;
+    background: #fff;
+    white-space: nowrap;
+    transition: background 0.3s ease-in-out;
+  }
+
+  &::before,
+  &::after {
+    left: 0;
+    content: '';
+    width: $ntbarwidth;
+    height: $ntbarheight;
+    background: #fff;
+    position: absolute;
+    transform-origin: center center;
+    transition: all .2s ease-in-out;
+//    transition: width 0.2s ease-in-out, background 0.2s ease-in-out, transform 0.2s ease-in-out, top 0.2s ease-in-out, bottom 0.2s ease-in-out, left 0.2s ease-in-out, right 0.2s ease-in-out;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &.menu-open {
+
+    span {
+      background: rgba(255,255,255,0);
+    }
+
+    &::before {
+      top: 8px;
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      bottom: 8px;
+      transform: rotate(45deg);
+    }
+
+    &::before,
+    &::after {
+      width: 26px;
+      background: #fff;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+
+      span {
+        background: rgba(255,255,255,0);
+      }
+
+      &::before {
+        bottom: 4px;
+//        right: 14px;
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+//        right: 14px;
+        bottom: 4px;
+        transform: rotate(45deg);
+      }
+
+      &::before,
+      &::after {
+        width: $ntarrowwidth;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+
+    span {
+      background: rgba(255,255,255,0);
+    }
+
+    &::before {
+      top: 4px;
+      left: 5px;
+      transform: rotate(45deg);
+      background-color: #fff;
+    }
+
+    &::after {
+      left: 5px;
+      bottom: 4px;
+      transform: rotate(-45deg)
+    }
+
+    &::before,
+    &::after {
+      width: $ntarrowwidth;
+    }
+  }
+}

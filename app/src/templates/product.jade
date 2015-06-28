@@ -3,9 +3,12 @@
 | {% assign unavailable = 'Unavailable' %}
 
 article.single-product(itemscope, itemtype="http://schema.org/Product")
+
 	meta(itemprop="url", content="{{ shop.url }}{{ product.url }}")
 	meta(itemprop="image", content="{{ product | img_url: 'grande' }}")
+
 	form#product-form.single-product__form(action="/cart/add", method="post", enctype="multipart/form-data")
+
 		div.single-product__image-wrap
 			| {% if product.images.size == 0 %}
 			img(src="{{ '' | img_url: 'grande' }}", alt="")
@@ -45,8 +48,10 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 					span(itemprop="price")
 						| {{ variant.price | money }}
 					| {% endif %}
+
 			div.single-product__description(itemprop="description")
 				| {{ product.description }}
+
 			div(class="{% if hide_default_title %} hidden{% endif %}")
 				select(id="product-select", name="id")
 					| {% for variant in product.variants %}
@@ -58,11 +63,12 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 				| {% if product.available and product.variants.size > 1 %}
 				| {% include 'swatch' with 'Size' %}
 				| {% endif %}
+
 			| {% assign hide_default_title = false %}
 			| {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
 			| {% assign hide_default_title = true %}
 			| {% endif %}
-			button.single-product__button(type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}") Add to cart
+			button.single-product__button(data-cart-add="12345678", type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}") Add to cart
 			| {% if collection %}
 			|   {% if collection.previous_product or collection.next_product %}
 			div
@@ -97,15 +103,18 @@ script.
 		if (variant) {
 			// Selected a valid variant that is available.
 			if (variant.available) {
+
 				// Enabling add to cart button.
 				jQuery('#add').removeClass('disabled').prop('disabled', false).val({{ add_to_cart | json }});
 				// If item is backordered yet can still be ordered, we'll show special message.
+
 				if (variant.inventory_management && variant.inventory_quantity <= 0) {
 					//- jQuery('#selected-variant').html({{ product.title | json }}{% unless hide_default_title %} + ' - ' + variant.title{% endunless %});
 					jQuery('#backorder').removeClass("hidden");
 				} else {
 					jQuery('#backorder').addClass("hidden");
 				}
+
 			} else {
 				// Variant is sold out.
 				jQuery('#backorder').addClass('hidden');
@@ -115,9 +124,11 @@ script.
 			// Whether the variant is in stock or not, we can update the price and compare at price.
 			if ( variant.compare_at_price > variant.price ) {
 				jQuery('#product-price').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
+
 			} else {
 				jQuery('#product-price').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
 			}
+
 		} else {
 			// variant doesn't exist.
 			jQuery('#product-price').empty();
@@ -140,5 +151,3 @@ script.
 		$('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
 		{% endif %}
 	});
-
-

@@ -57,7 +57,9 @@ module.exports = {
     font_src: src_path+'assets/fonts/**/*',
     font_build: build_path+'assets/fonts',
     config_src: src_path+'config/**/*',
-    config_build: build_path+'config'
+    config_build: build_path+'config',
+    script_src: src_path+'assets/js/header/*',
+    script_build: build_path+'assets/'
   },
 
   shopifywatch: {
@@ -71,7 +73,7 @@ module.exports = {
       templates: src_path+'**/*.jade',
       images: src_path+'assets/img/**/*',
       scripts: src_path+'assets/js/**/*.js',
-      copy: [src_path+'assets/fonts/**/*',src_path+'config/**/*' ]
+      copy: [src_path+'assets/fonts/**/*',src_path+'config/**/*']
     }
   }
 };

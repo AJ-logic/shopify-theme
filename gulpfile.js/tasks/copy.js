@@ -13,4 +13,7 @@ gulp.task('copy', function() {
   gulp.src(config.config_src)
   .pipe(gulp.dest(config.config_build));
 
+  // Untouched header scripts
+  gulp.src(config.script_src)
+  .pipe(gulp.dest(config.script_build));
 });

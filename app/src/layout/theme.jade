@@ -26,6 +26,7 @@ html(lang="en")
 
 		| {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' | script_tag }}
 		| {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+		| {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
 
 		script(src='//use.typekit.net/tyt2mqb.js')
 		script.
@@ -36,47 +37,23 @@ html(lang="en")
 	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}page-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
 		| {% include 'cart-small' %}
 
-		//- | {% if settings.use_logo %}
-
-		//- a(href='/')
-		//-   | {{ 'logo.png' | asset_url | img_tag: shop.name }}
-		//- | {% else %}
-		//- a#site-title(href='')
-		//-   | {{ shop.name }}
-		//- | {% endif %}
-		//- | {% if template == 'index' %}
-		//- | {{ shop.name }}
-		//- | {% endif %}
-
 		.site-header
 			h1.site-header__title
 				a(href='/')
 					img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
-			| {% include 'site-nav' %}
-			//- | {% include 'site-header-search' %}
+			ul.siteNavIcons
+				li.siteNavIcons__item
+					#nav-toggle-wrap
+						#nav-toggle.nav-toggle
+							span
+
+			//- | {% include 'site-nav' %}
 
 		#main.site-content(role="main")
 			| {{ content_for_layout }}
+
 		| {% if template == 'index' %}
-		footer.site-footer
-			.container
-			| {% if linklists.footer.links.size > 0 %}
-			ul.site-footer__menu
-				|   {% for link in linklists.footer.links %}
-				li.site-footer__menu-item
-				a.site-footer__menu-link(href="{{ link.url }}", title="{{ link.title }}", class="{% if link.active %}active{% endif %}")
-					| {{ link.title }}
-				|   {% endfor %}
-			| {% endif %}
-
-			| {% unless shop.enabled_payment_types == empty %}
-
-			|   {% for type in shop.enabled_payment_types %}
-			img(width="40", src="{{ type | payment_type_img_url }}")
-			|   {% endfor %}
-			| {% endunless %}
-			p.
-				Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}.
+		| {% include 'site-footer' %}
 		| {% endif %}
 
 		| {{ 'script.min.js'  | asset_url | script_tag }}
