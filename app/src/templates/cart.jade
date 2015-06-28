@@ -39,7 +39,9 @@
 					td
 						h2.cartTable__title
 							a.cartTable__titleLink(href="{{ collection_url }}{{ item.url }}")
-								| {{ item.title }}
+								| {{ item.product.title }}
+						h3.cartTable__variantTitle
+							| {{ item.variant.title }}
 
 
 						| {% assign properties_amount = item.properties | size %}
@@ -59,7 +61,7 @@
 							| {% endfor %}
 
 						| {% endif %}
-						h3.cartTable__vendor
+						//- h3.cartTable__vendor
 							| {{ item.vendor }}
 
 					td.cartTable__price
