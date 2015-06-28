@@ -52,7 +52,7 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 			div.single-product__description(itemprop="description")
 				| {{ product.description }}
 
-			div(class="{% if hide_default_title %} hidden{% endif %}")
+			div(class="single-product__dropdown{% if hide_default_title %} hidden{% endif %}")
 				select(id="product-select", name="id")
 					| {% for variant in product.variants %}
 					//- |   <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
@@ -60,9 +60,9 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 					|   {{ variant.title }} - {{ variant.price | money }}
 					|   </option>
 					| {% endfor %}
-				| {% if product.available and product.variants.size > 1 %}
-				| {% include 'swatch' with 'Size' %}
-				| {% endif %}
+			| {% if product.available and product.variants.size > 1 %}
+			| {% include 'swatch' with 'Size' %}
+			| {% endif %}
 
 			| {% assign hide_default_title = false %}
 			| {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
@@ -71,6 +71,8 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 			button.single-product__button(data-cart-add="12345678", type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}") Add to cart
 			| {% if collection %}
 			|   {% if collection.previous_product or collection.next_product %}
+
+
 			div
 				| {% if collection.previous_product %}
 				| {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
@@ -84,6 +86,27 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 				| {% endif %}
 			| {% endif %}
 			| {% endif %}
+
+			.single-product__social
+				ul.socialList
+					li.socialList__item
+						a.socialList__link(href='#')
+							i.socialList__icon.icon-facebook
+					li.socialList__item
+						a.socialList__link(href='#')
+							i.socialList__icon.icon-twitter
+					li.socialList__item
+						a.socialList__link(href='#')
+							i.socialList__icon.icon-pinterest
+					li.socialList__item
+						a.socialList__link(href='#')
+							i.socialList__icon.icon-google-plus
+					li.socialList__item
+						a.socialList__link(href='#')
+							i.socialList__icon.icon-tumblr
+					li.socialList__item
+						a.socialList__link(href='#')
+							i.socialList__icon.icon-mail
 
 script.
 	var selectCallback = function(variant, selector) {

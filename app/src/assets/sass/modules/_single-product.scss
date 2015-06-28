@@ -33,6 +33,8 @@
     height: 100%;
     border-left: 1px solid #999;
     padding: 60px 20px 0;
+    overflow-y: scroll;
+    padding-bottom: 100px;
   }
 
   &__brand {
@@ -62,6 +64,12 @@
     margin-bottom: 30px;
   }
 
+  &__dropdown {
+    visibility: hidden;
+    height: 1px;
+    overflow: hidden;
+  }
+
   &__button {
     float: left;
     margin: 40px 0 0;
@@ -78,11 +86,20 @@
     font-family: $headerfont;
     font-weight: 700;
     font-size: 20px;
+    outline: none;
 
     &:hover {
       border: 1px solid  #ec008c;
       background-color: #ec008c;
       color: #fff;
     }
+  }
+
+  &__social {
+    overflow: hidden;
+    width: 100%;
+    border-top: 1px solid #999;
+    margin-top: 60px;
+    float: left;
   }
 }
