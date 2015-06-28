@@ -18,6 +18,7 @@ html(lang="en")
 		| {{ content_for_header }}
 
 		| {{ 'screen.css' | asset_url | stylesheet_tag }}
+		| {{ 'style.css' | asset_url | stylesheet_tag }}
 		| {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
 
 		<!--[if lt IE 9]>
