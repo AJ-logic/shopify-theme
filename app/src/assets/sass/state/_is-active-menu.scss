@@ -1,17 +1,16 @@
-.is-active-menu {
-  & {
+$menuwidth: 260px;
 
-  }
+.is-active-menu {
 
   .siteNav {
     transform: translateX(0);
   }
 
   .site-header {
-    transform: translateX(300px);
+    transform: translateX($menuwidth);
   }
 
   .site-content {
-    transform: translateX(300px);
+    transform: translateX($menuwidth);
   }
 }

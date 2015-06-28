@@ -49,10 +49,19 @@ html(lang="en")
 						#navToggle.navToggle
 							span
 				li.siteNavIcons__item.siteNavIcons__item--cart
-					a.siteNavIcons__link(href='#')
+					{% if cart.item_count == 0 %}
+					.siteNavIcons__link
 						.siteNavIcons__count
 							| {{ cart.item_count }}
 						img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
+					.siteNavIcons__note
+						p Your cart is empty. Start shopping.
+					| {% else %}
+					a.siteNavIcons__link(href='/cart')
+						.siteNavIcons__count
+							| {{ cart.item_count }}
+						img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
+					| {% endif %}
 
 		#main.site-content(role="main")
 			| {{ content_for_layout }}

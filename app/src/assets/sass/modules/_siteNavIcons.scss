@@ -16,6 +16,16 @@
 
     &--cart {
       color: #fff;
+      line-height: 1;
+
+      &:hover {
+
+        .siteNavIcons__note {
+          visibility: visible;
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
     }
   }
 
@@ -33,6 +43,9 @@
     height: auto;
     position: relative;
     z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 
   &__count {
@@ -40,10 +53,49 @@
     color: #ec008c;
     font-size: 18px;
     z-index: 12;
-    position: absolute;
-    margin: auto;
-    top: 14px;
-    left: 20px;
+    text-align: center;
+    position: relative;
     font-weight: 700;
+    padding-top: 14px;
+    padding-left: 4px;
+  }
+
+  &__note {
+    position: absolute;
+    left: 75px;
+    bottom: 14px;
+    width: 200px;
+    color: #666;
+    background-color: #fff;
+    text-align: left;
+    font-size: 14px;
+    padding: 10px 14px;
+    transform: translateX(25%);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: #ec008c;
+      text-decoration: underline;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      margin-top: -8px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid #fff;
+    }
   }
 }
