@@ -8,8 +8,13 @@
   }
 
   &__item {
-    @include span(4 of 12 0);
+    width: 100%;
+    height: 260px;
     position: relative;
+
+    @include breakpoint($desktop-small) {
+      @include span(4 of 12 0);
+    }
 
     &:hover {
 

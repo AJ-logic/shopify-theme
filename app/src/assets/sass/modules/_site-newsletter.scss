@@ -13,15 +13,24 @@
     margin: 0;
     font-weight: 400;
     font-size: 20px;
-    width: 50%;
+    width: 100%;
     margin: 0 auto 30px;
     color:  #000;
+
+
+    @include breakpoint($desktop-small) {
+      width: 50%;
+    }
   }
 
   &__form {
-    width: 30%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
+
+    @include breakpoint($desktop-small) {
+      width: 50%;
+    }
   }
 
   &__input {

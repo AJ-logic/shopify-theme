@@ -2,10 +2,14 @@
 
   & {
     width: 100%;
-    height: 80%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     position: relative;
+
+    @include breakpoint($desktop-small) {
+      height: 80%;
+    }
 
     &:before {
       content: '';
@@ -50,8 +54,12 @@
     font-weight: 700;
     font-family: $headerfont;
     color: #fff;
-    font-size: 54px;
+    font-size: 34px;
     text-transform: uppercase;
+
+    @include breakpoint($desktop-small) {
+      font-size: 54px;
+    }
 
     &--page {
 
@@ -65,13 +73,18 @@
     font-weight: 300;
     text-transform: uppercase;
     border: 2px solid #fff;
-    font-size: 22px;
-    padding: 10px 40px;
+    font-size: 18px;
+    padding: 8px 30px;
     position: relative;
     z-index: 0;
     color: #fff;
     text-decoration: none;
     transition: background-color .3s ease;
+
+    @include breakpoint($desktop-small) {
+      padding: 10px 40px;
+      font-size: 22px;
+    }
 
     &:hover {
       background-color: rgba(0, 0, 0, .4);

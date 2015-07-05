@@ -9,11 +9,20 @@ $desktop:                   1200px;
 
 .container {
   @include container(1200px);
+  padding: 0 20px;
+
+  @include breakpoint($desktop-small) {
+    padding: 0;
+  }
 }
 
 .site-content {
   height: 100%;
-  padding-left: 75px;
+  padding-left: 60px;
   transition: transform .3s ease;
+
+  @include breakpoint($desktop-small) {
+    padding-left: 75px;
+  }
 }
 
