@@ -3,11 +3,17 @@
   & {
 
     &--two-per-row {
-      @include span(8 of 16 0);
-      height: 400px;
-      padding-top: 10px;
+      width: 100%;
+      height: auto;
+      padding: 10px 0;
       border-right: 1px solid #999;
       border-bottom: 1px solid #999;
+
+      @include breakpoint($desktop-small) {
+        @include span(8 of 16 0);
+        height: 400px;
+        padding: 10px 0 0;
+      }
 
       &:nth-child(2n) {
         @include omega;

@@ -23,8 +23,12 @@
     }
 
     &--small {
-      height: 33.3%;
-      min-height: 340px;
+      height: 120px;
+
+      @include breakpoint($desktop-small) {
+        height: 33.3%;
+        min-height: 340px;
+      }
     }
 
     &--align-bottom {
