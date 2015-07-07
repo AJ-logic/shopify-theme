@@ -28,6 +28,7 @@ html(lang="en")
 		| {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' | script_tag }}
 		| {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 		| {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+		| {{ 'modernizr.min.js' | asset_url | script_tag }}
 
 		script(src='//use.typekit.net/tyt2mqb.js')
 		script.
@@ -49,20 +50,24 @@ html(lang="en")
 					#navToggleWrap
 						#navToggle.navToggle
 							span
+				//- li
+					| (<span id="cartCount">{{ cart.item_count }}</span>
+					| {{ 'layout.cart.items_count' | t: count: cart.item_count }}
+					| <span id="CartCost">{{ cart.total_price | money }}</span>)
 				li.siteNavIcons__item.siteNavIcons__item--cart
-					| {% if cart.item_count == 0 %}
-					.siteNavIcons__link
-						.siteNavIcons__count
-							| {{ cart.item_count }}
-						img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
-					.siteNavIcons__note
-						p Your cart is empty. Start shopping.
-					| {% else %}
+					//- | {% if cart.item_count == 0 %}
+					//- .siteNavIcons__link
+					//- 	.siteNavIcons__count#cartCount
+					//- 		| {{ cart.item_count }}
+					//- 	img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
+					//- .siteNavIcons__note
+					//- 	p Your cart is empty. Start shopping.
+					//- | {% else %}
 					a.siteNavIcons__link(href='/cart')
-						.siteNavIcons__count
+						.siteNavIcons__count#cartCount
 							| {{ cart.item_count }}
 						img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
-					| {% endif %}
+					//- | {% endif %}
 
 		#main.site-content(role="main")
 			| {{ content_for_layout }}
@@ -72,3 +77,38 @@ html(lang="en")
 		| {% endif %}
 
 		| {{ 'script.min.js'  | asset_url | script_tag }}
+		| {{ 'timber.js' | asset_url | script_tag }}
+		| {% comment %}
+		| Ajaxify your cart with this plugin.
+		| Documentation:
+		|	- http://shopify.com/timber#ajax-cart
+		| {% endcomment %}
+
+		| {{ 'handlebars.min.js' | asset_url | script_tag }}
+		| {% include 'ajax-cart-template' %}
+		| {{ 'ajax-cart.js' | asset_url | script_tag }}
+		script.
+			jQuery(function($) {
+				ajaxCart.init({
+					formSelector: '#product-form',
+					cartContainer: '#CartContainer',
+					addToCartSelector: '#AddToCart',
+					cartCountSelector: '#cartCount',
+					cartCostSelector: '#CartCost',
+					moneyFormat: {{ shop.money_format | json }}
+				});
+			});
+
+			//- Shopify.onItemAdded = function(cart) {
+			//- 	jQuery.getJSON('/cart.js', function(cart) {
+			//- 		$('#cartCount').html(cart.item_count);
+			//- 	});
+			//- };
+
+			jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+				console.log('succes');
+				// Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+				//- timber.RightDrawer.open();
+			});
+
+

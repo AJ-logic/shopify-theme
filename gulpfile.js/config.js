@@ -58,7 +58,7 @@ module.exports = {
     font_build: build_path+'assets/',
     config_src: src_path+'config/**/*',
     config_build: build_path+'config',
-    script_src: src_path+'assets/js/header/*',
+    script_src: src_path+'assets/js/header/**/*',
     script_build: build_path+'assets/'
   },
 
