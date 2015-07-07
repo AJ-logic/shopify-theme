@@ -14,6 +14,7 @@
 
     @include breakpoint($desktop-small) {
       @include span(4 of 12 0);
+      height: auto;
     }
 
     &:hover {
