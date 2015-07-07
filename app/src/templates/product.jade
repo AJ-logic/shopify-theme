@@ -167,10 +167,13 @@ script.
 			enableHistoryState: true
 		});
 
-		$('.single-option-selector:eq(0)').val("l").trigger('change');
+
 
 		// Add label if only one product option and it isn't 'Title'.
 		{% if product.options.size == 1 and product.options.first != 'Title' %}
 		$('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
+		$('.single-option-selector:eq(0)').val("l").trigger('change');
 		{% endif %}
+
+
 	});

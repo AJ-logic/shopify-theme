@@ -242,7 +242,8 @@ var ajaxCart = (function(module, $) {
 
     if (!!data.message) {
       if (data.status == 422) {
-        $formContainer.after('<div class="errors qty-error">'+ data.description +'</div>')
+        $formContainer.after('<div class="errors qty-error">'+ data.description +'</div>');
+        $('#add').addClass('disabled');
       }
     }
   };
