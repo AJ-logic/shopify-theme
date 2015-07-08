@@ -73,7 +73,11 @@ module.exports = {
       templates: src_path+'**/*.jade',
       images: src_path+'assets/img/**/*',
       scripts: src_path+'assets/js/**/*.js',
-      copy: [src_path+'assets/fonts/**/*',src_path+'config/**/*']
+      copy: [
+        src_path+'assets/fonts/**/*',
+        src_path+'config/**/*',
+        src_path+'assets/js/header/**/*'
+      ]
     }
   }
 };
