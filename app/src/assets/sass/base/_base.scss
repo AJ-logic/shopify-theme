@@ -19,3 +19,13 @@ h6 {
   font-family: $headerfont;
   font-weight: 300;
 }
+
+.qty-error {
+  border: 1px solid darken(#ff0000, 25%);
+  overflow: hidden;
+  width: 100%;
+  float: left;
+  padding: 10px;
+  background-color: lighten(#ff0000, 45%);
+  margin-top: 30px;
+}

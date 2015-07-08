@@ -99,12 +99,6 @@ html(lang="en")
 				});
 			});
 
-			//- Shopify.onItemAdded = function(cart) {
-			//- 	jQuery.getJSON('/cart.js', function(cart) {
-			//- 		$('#cartCount').html(cart.item_count);
-			//- 	});
-			//- };
-
 			jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
 				console.log('succes');
 				// Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM

@@ -35,7 +35,7 @@ function attributeToString(attribute) {
   API Functions
 ==============================================================================*/
 ShopifyAPI.onCartUpdate = function(cart) {
-  // alert('There are now ' + cart.item_count + ' items in the cart.');
+  alert('There are now ' + cart.item_count + ' items in the cart.');
 };
 
 ShopifyAPI.updateCartNote = function(note, callback) {
@@ -222,6 +222,7 @@ var ajaxCart = (function(module, $) {
 
       // Add class to be styled if desired
       $addToCart.removeClass('is-added').addClass('is-adding');
+      console.log('clickclack');
 
       // Remove any previous quantity errors
       $('.qty-error').remove();
@@ -242,7 +243,8 @@ var ajaxCart = (function(module, $) {
 
     if (!!data.message) {
       if (data.status == 422) {
-        $formContainer.after('<div class="errors qty-error">'+ data.description +'</div>');
+        console.log('error');
+        $('.single-product__option-wrap').append('<div class="errors qty-error">'+ data.description +'</div>');
         $('#add').addClass('disabled');
       }
     }

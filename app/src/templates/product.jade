@@ -48,44 +48,44 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 					span(itemprop="price")
 						| {{ variant.price | money }}
 					| {% endif %}
+			.single-product__option-wrap
+				div.single-product__description(itemprop="description")
+					| {{ product.description }}
 
-			div.single-product__description(itemprop="description")
-				| {{ product.description }}
-
-			div(class="single-product__dropdown{% if hide_default_title %} hidden{% endif %}")
-				select(id="product-select", name="id")
-					| {% for variant in product.variants %}
-					//- |   <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
-					|   <option value="{{ variant.id }}">
-					|   {{ variant.title }} - {{ variant.price | money }}
-					|   </option>
-					| {% endfor %}
-			| {% if product.available and product.variants.size > 1 %}
-			| {% include 'swatch' with 'Size' %}
-			| {% endif %}
-
-			| {% assign hide_default_title = false %}
-			| {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
-			| {% assign hide_default_title = true %}
-			| {% endif %}
-			button.single-product__button(type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}") Add to cart
-			| {% if collection %}
-			|   {% if collection.previous_product or collection.next_product %}
-
-
-			div
-				| {% if collection.previous_product %}
-				| {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
-				span
-					| {{ '&larr; Previous Product' | link_to: prev_url }}
+				div(class="single-product__dropdown{% if hide_default_title %} hidden{% endif %}")
+					select(id="product-select", name="id")
+						| {% for variant in product.variants %}
+						//- |   <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
+						|   <option value="{{ variant.id }}">
+						|   {{ variant.title }} - {{ variant.price | money }}
+						|   </option>
+						| {% endfor %}
+				| {% if product.available and product.variants.size > 1 %}
+				| {% include 'swatch' with 'Size' %}
 				| {% endif %}
-				| {% if collection.next_product %}
-				| {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
-				span
-					| {{ 'Next Product &rarr;' | link_to: next_url }}</span>
+
+				| {% assign hide_default_title = false %}
+				| {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+				| {% assign hide_default_title = true %}
 				| {% endif %}
-			| {% endif %}
-			| {% endif %}
+				button.single-product__button(type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}") Add to cart
+				| {% if collection %}
+				|   {% if collection.previous_product or collection.next_product %}
+
+
+				div
+					| {% if collection.previous_product %}
+					| {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
+					span
+						| {{ '&larr; Previous Product' | link_to: prev_url }}
+					| {% endif %}
+					| {% if collection.next_product %}
+					| {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
+					span
+						| {{ 'Next Product &rarr;' | link_to: next_url }}</span>
+					| {% endif %}
+				| {% endif %}
+				| {% endif %}
 
 			.single-product__social
 				ul.socialList
