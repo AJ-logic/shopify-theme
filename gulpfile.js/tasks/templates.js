@@ -13,38 +13,33 @@ var onError = function (err) {
 // Execute Jade Templates
 gulp.task('templates', function() {
   return gulp.src(config.source)
-    // Catch errors
-    .pipe(plugins.plumber({errorHandler: onError}))
 
-    // Only build changed files
-    .pipe(plugins.changed(config.build, {extension: '.liquid'}))
+  // Catch errors
+  .pipe(plugins.plumber({errorHandler: onError}))
 
-    .pipe(plugins.if(global.isWatching, plugins.cached('jade')))
+  // Only build changed files
+  .pipe(plugins.changed(config.build, {extension: '.liquid'}))
 
-    // Watch partials for change
-    .pipe(plugins.jadeInheritance({basedir: config.base}))
+  .pipe(plugins.if(global.isWatching, plugins.cached('jade')))
 
-    // Ignore build of files starting with _
-    .pipe(plugins.filter(function (file) {
-      return !/\/_/.test(file.path) && !/^_/.test(file.relative);
-    }))
+  // Watch partials for change
+  .pipe(plugins.jadeInheritance({basedir: config.base}))
 
-    // Output Jade
-    .pipe(plugins.jade({pretty: true}))
+  // Ignore build of files starting with _
+  .pipe(plugins.filter(function (file) {return !/\/_/.test(file.path) && !/^_/.test(file.relative);}))
 
-    // Catch errors
-    .pipe(plugins.plumber({errorHandler: onError}))
+  // Output Jade
+  .pipe(plugins.jade({pretty: true}))
 
-    // Rename to something usefull for Shopify
-    .pipe(plugins.rename({
+  // Catch errors
+  .pipe(plugins.plumber({errorHandler: onError}))
 
-      extname: ".liquid"
+  // Rename to something usefull for Shopify
+  .pipe(plugins.rename({extname: ".liquid"}))
 
-    }))
+  // Distribute to build path
+  .pipe(gulp.dest(config.build))
 
-    // Distribute to build path
-    .pipe(gulp.dest(config.build))
-
-    // Show notification
-    .pipe(plugins.if(global.isWatching, plugins.notify({ message: 'templates task complete' })));
+  // Show notification
+  .pipe(plugins.if(global.isWatching, plugins.notify({ message: 'templates task complete' })));
 });

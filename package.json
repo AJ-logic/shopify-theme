@@ -51,6 +51,8 @@
     "gulp-shopify-upload": "^1.0.12",
     "gulp-watch": "^4.2.4",
     "require-dir": "^0.3.0",
-    "gulp-flatten": "0.0.4"
+    "gulp-flatten": "0.0.4",
+    "gulp-ignore": "^1.2.1",
+    "gulp-replace": "^0.5.3"
   }
 }

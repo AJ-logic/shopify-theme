@@ -1,6 +1,7 @@
 var
   gulp                = require('gulp'),
   config              = require('../config').watch;
+  iconfont            = require('../config').iconfont;
 // Watch
 gulp.task('watch', ['setwatch', 'templates'], function() {
 
@@ -18,6 +19,8 @@ gulp.task('watch', ['setwatch', 'templates'], function() {
 
   // Copy
   gulp.watch(config.source.copy, ['copy']);
+
+  gulp.watch(iconfont.font_src, ['iconfont']);
 
   gulp.start('shopifywatch');
 

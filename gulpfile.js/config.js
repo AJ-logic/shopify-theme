@@ -54,12 +54,21 @@ module.exports = {
   },
 
   copy: {
-    font_src: src_path+'assets/fonts/**/*',
-    font_build: build_path+'assets/',
+
     config_src: src_path+'config/**/*',
     config_build: build_path+'config',
     script_src: src_path+'assets/js/header/**/*',
     script_build: build_path+'assets/'
+  },
+
+  iconfont: {
+    font_src: [
+      src_path+'assets/iconfont/*.css',
+      src_path+'assets/iconfont/**/*{eot,.svg,.ttf,.woff}',
+    ],
+    font_style: src_path+'assets/iconfont/style.css',
+    font_ignore: src_path+'assets/iconfont/demo-files/demo.css',
+    font_build: build_path+'assets/',
   },
 
   shopifywatch: {
