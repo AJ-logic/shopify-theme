@@ -68,6 +68,8 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 				| {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
 				| {% assign hide_default_title = true %}
 				| {% endif %}
+
+				.single-product__errorWrap
 				button.single-product__button(type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}") Add to cart
 				| {% if collection %}
 				|   {% if collection.previous_product or collection.next_product %}

@@ -173,7 +173,8 @@ var ajaxCart = (function(module, $) {
     // Select DOM elements
     $formContainer     = $(settings.formSelector);
     $cartContainer     = $(settings.cartContainer);
-    $addToCart         = $formContainer.find(settings.addToCartSelector);
+    // $addToCart         = $formContainer.find(settings.addToCartSelector);
+    $addToCart         = $('#add');
     $cartCountSelector = $(settings.cartCountSelector);
     $cartCostSelector  = $(settings.cartCostSelector);
 
@@ -222,7 +223,7 @@ var ajaxCart = (function(module, $) {
 
       // Add class to be styled if desired
       $addToCart.removeClass('is-added').addClass('is-adding');
-      console.log('clickclack');
+      $body.removeClass('isAddedToCart').addClass('isAddingToCart');
 
       // Remove any previous quantity errors
       $('.qty-error').remove();
@@ -232,9 +233,23 @@ var ajaxCart = (function(module, $) {
   };
 
   itemAddedCallback = function (product) {
+
     $addToCart.removeClass('is-adding').addClass('is-added');
 
+    $body.removeClass('isAddingToCart').addClass('isAddedToCart');
+
+    setTimeout(function() {
+      $body.removeClass('isAddedToCart');
+    }, 4000);
+
+    $body.on('click', function() {
+      $(this).removeClass('isAddedToCart');
+    });
+
     ShopifyAPI.getCart(cartUpdateCallback);
+
+
+
   };
 
   itemErrorCallback = function (XMLHttpRequest, textStatus) {
@@ -244,7 +259,7 @@ var ajaxCart = (function(module, $) {
     if (!!data.message) {
       if (data.status == 422) {
         console.log('error');
-        $('.single-product__option-wrap').append('<div class="errors qty-error">'+ data.description +'</div>');
+        $('.single-product__errorWrap').append('<div class="errors qty-error">'+ data.description +'</div>');
         $('#add').addClass('disabled');
       }
     }

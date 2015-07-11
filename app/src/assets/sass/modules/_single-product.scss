@@ -104,7 +104,7 @@
 
   &__button {
     float: left;
-    margin: 40px 0 0;
+    margin: 20px 0 0;
     border: 1px solid #000;
     height: 50px;
     padding: 0 50px;
@@ -119,6 +119,10 @@
     font-weight: 700;
     font-size: 20px;
     outline: none;
+
+    &.is-adding {
+      opacity: .5;
+    }
 
     &:hover {
       border: 1px solid  #ec008c;

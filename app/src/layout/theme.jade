@@ -50,24 +50,16 @@ html(lang="en")
 					#navToggleWrap
 						#navToggle.navToggle
 							span
-				//- li
-					| (<span id="cartCount">{{ cart.item_count }}</span>
-					| {{ 'layout.cart.items_count' | t: count: cart.item_count }}
-					| <span id="CartCost">{{ cart.total_price | money }}</span>)
 				li.siteNavIcons__item.siteNavIcons__item--cart
-					//- | {% if cart.item_count == 0 %}
-					//- .siteNavIcons__link
-					//- 	.siteNavIcons__count#cartCount
-					//- 		| {{ cart.item_count }}
-					//- 	img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
-					//- .siteNavIcons__note
-					//- 	p Your cart is empty. Start shopping.
-					//- | {% else %}
 					a.siteNavIcons__link(href='/cart')
 						.siteNavIcons__count#cartCount
 							| {{ cart.item_count }}
 						img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
-					//- | {% endif %}
+			.cartTooltip
+				.cartTooltip__content
+					| your product has been added to the cart
+				.checkmark
+
 
 		#main.site-content(role="main")
 			| {{ content_for_layout }}

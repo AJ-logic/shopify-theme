@@ -12,6 +12,8 @@
 		|		{% assign collection_url = '/collections/all' %}
 		| 	{% endif %}
 
+		| {% assign continue_shopping_url = collection_url %}
+
 		.page-cart__buttonWrap.page-cart__buttonWrap--top
 			a.page-cart__button(href="{{ continue_shopping_url }}") Continue shopping
 			input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
@@ -85,7 +87,6 @@
 					th &nbsp;
 					th &nbsp;
 					th.cartTable__totalPrice {{ cart.total_price | money }}
-
 
 
 		.page-cart__buttonWrap

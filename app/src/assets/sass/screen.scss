@@ -18,6 +18,8 @@
 @import 'modules/site-cart';
 @import 'modules/site-footer';
 @import 'modules/site-newsletter';
+@import 'modules/cartTooltip';
+@import 'modules/checkmark';
 
 @import 'modules/articleExcerpt';
 
@@ -41,6 +43,7 @@
 
 // State
 @import 'state/is-active-menu';
+@import 'state/isAddedToCart';
 
 // Vendor
 @import 'vendor/selectric';

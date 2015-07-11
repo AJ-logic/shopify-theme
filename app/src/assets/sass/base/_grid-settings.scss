@@ -6,7 +6,6 @@ $tablet:                    768px;
 $desktop-small:             1000px;
 $desktop:                   1200px;
 
-
 .container {
   @include container(1200px);
   padding: 0 20px;
@@ -19,10 +18,10 @@ $desktop:                   1200px;
 .site-content {
   height: 100%;
   padding-left: 60px;
-  transition: transform .3s ease;
+  transition: all .3s ease;
+  position: relative;
 
   @include breakpoint($desktop-small) {
     padding-left: 75px;
   }
 }
-
