@@ -1,25 +1,24 @@
 var
-    gulp                = require('gulp'),
-    plugins             = require('gulp-load-plugins')(),
-    config              = require('../config').images;
+  gulp                = require('gulp'),
+  plugins             = require('gulp-load-plugins')(),
+  config              = require('../config/images');
 
 // Images
 gulp.task('images', function() {
   return gulp.src(config.source)
 
-    // Image optimization
-    .pipe(plugins.cache(plugins.imagemin({
-      optimizationLevel: 3,
-      progressive: true,
-      interlaced: true
-    })))
+  // Only add to stream if changed
+  .pipe(plugins.changed(config.dest))
 
-    // Flatten directory
-    .pipe(plugins.flatten())
+  // Image optimization
+  .pipe(plugins.imagemin(config.imagemin))
 
-    // Distribute to build path
-    .pipe(gulp.dest(config.build))
+  // Flatten directory
+  .pipe(plugins.flatten())
 
-    // Show notification
-    .pipe(plugins.if(global.isWatching, plugins.notify({ message: 'Images task complete' })));
+  // Distribute to build path
+  .pipe(gulp.dest(config.dest))
+
+  // Show notification
+  .pipe(plugins.if(global.isWatching, plugins.notify({ message: 'Images task complete' })));
 });
