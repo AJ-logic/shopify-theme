@@ -5,5 +5,8 @@ module.exports = {
   watchFolder: config.dest,
   options: {
     "basePath": config.dest
+  },
+  notify: {
+    message: 'upload task complete'
   }
 }

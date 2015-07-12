@@ -3,7 +3,7 @@ var
   config              = require('../config').watch;
   iconfont            = require('../config').iconfont;
 // Watch
-gulp.task('watch', ['setwatch', 'templates'], function() {
+gulp.task('watch', ['setWatch', 'templates'], function() {
 
   // Watch .scss files
   gulp.watch(config.source.styles, ['styles']);

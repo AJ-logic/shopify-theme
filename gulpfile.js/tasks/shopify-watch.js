@@ -5,7 +5,7 @@ var
   credentials         = require('../config/shopifyCredentials');
 
 // Shopifywatch
-gulp.task('shopify:watch', function() {
+gulp.task('shopify:watch',['setWatch'], function() {
   return plugins.watch(config.watchFiles)
 
   // Check if files have changed
@@ -21,6 +21,6 @@ gulp.task('shopify:watch', function() {
   ))
 
   // Notify when uploaded
-  .pipe(plugins.if(global.isWatching, plugins.notify({ message: 'upload task complete' })));
+  .pipe(plugins.if(global.isWatching, plugins.notify(config.notify)));
 
 });
