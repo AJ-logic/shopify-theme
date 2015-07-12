@@ -1,6 +1,7 @@
 .cartTooltip {
 
   & {
+    display: block;
     width: 300px;
     height: auto;
     position: absolute;
@@ -12,10 +13,10 @@
     font-size: 18px;
     line-height: 1.2;
     padding: 10px 20px;
-    // visibility: hidden;
+    visibility: hidden;
     pointer-events: none;
     transform: translateX(40px);
-    // opacity: 0;
+    opacity: 0;
     transition: opacity .3s ease;
     z-index: 999;
 
@@ -46,7 +47,15 @@
     }
   }
 
+  &__check {
+    position: absolute;
+    top: 50%; right: 20px;
+    transform: translateY(-50%);
+    font-size: 32px;
+  }
+
   &__content {
     float: left;
+    padding-right: 30px;
   }
 }
