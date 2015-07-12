@@ -1,15 +1,15 @@
 var
   gulp                = require('gulp'),
   plugins             = require('gulp-load-plugins')(),
-  credentials         = require('../config/shopifyCredentials').sc,
   config              = require('../config/shopify'),
-  options             = { "basePath": config.dest };
+  credentials         = require('../config/shopifyCredentials');
 
 // Shopifywatch
 gulp.task('shopify:watch', function() {
   return plugins.watch(config.watchFiles)
 
-  .pipe(plugins.changed(config.watchFiles))
+  // Check if files have changed
+  .pipe(plugins.changed(config.watchFolder))
 
   // Add secret key, etc to gulp shopify upload
   .pipe(plugins.shopifyUpload(
@@ -17,7 +17,7 @@ gulp.task('shopify:watch', function() {
     credentials.password,
     credentials.url,
     credentials.theme_id,
-    options
+    config.options
   ))
 
   // Notify when uploaded
