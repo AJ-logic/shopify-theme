@@ -19,4 +19,13 @@ jQuery(document).ready(function($) {
             $('#navToggle').addClass('menu-open');
         }
     });
+
+    $('#productSlider').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear',
+      arrows: false
+    });
 });
