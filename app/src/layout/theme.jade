@@ -60,7 +60,6 @@ html(lang="en")
 					| your product has been added to the cart
 				i.cartTooltip__check.icon-check
 
-
 		#main.site-content(role="main")
 			| {{ content_for_layout }}
 
@@ -77,7 +76,7 @@ html(lang="en")
 		| {% endcomment %}
 
 		| {{ 'handlebars.min.js' | asset_url | script_tag }}
-		| {% include 'ajax-cart-template' %}
+		//- | {% include 'ajax-cart-template' %}
 		| {{ 'ajax-cart.js' | asset_url | script_tag }}
 		script.
 			jQuery(function($) {

@@ -5,12 +5,6 @@ var
   build_path            = app_path + 'build/',
   bower_components      = './bower_components/';
 
-// Requirements, gulp plugins loaded  with gulp-load-plugins
-var
-  gulp                = require('gulp'),
-  gulpLoadPlugins     = require('gulp-load-plugins'),
-  plugins             = gulpLoadPlugins();
-
 module.exports = {
 
   templates: {
