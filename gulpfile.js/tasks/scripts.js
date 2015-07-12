@@ -28,4 +28,5 @@ gulp.task('scripts', function() {
 
   // Show notifcation
   .pipe(plugins.if(global.isWatching, plugins.notify({ message: 'Scripts task complete' })));
+
 });
