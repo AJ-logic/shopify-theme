@@ -1,4 +1,4 @@
-.hero-row {
+.heroRow {
 
   & {
     width: 100%;
@@ -19,16 +19,16 @@
 
     &:hover {
 
-      .hero-row__item-link {
+      .heroRow__item-link {
         background-color: rgba(0, 0, 0, .6);
       }
 
-      .hero-row__item-content-wrap {
+      .heroRow__item-content-wrap {
         opacity: 1;
         visibility: visible;
       }
 
-      .hero-row__item-title {
+      .heroRow__item-title {
         transform: scale(1);
       }
     }

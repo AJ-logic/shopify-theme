@@ -48,7 +48,7 @@
 		| {{ collection.description }}
 	| {% endif %}
 
-	ul.product-grid.product-grid--collection
+	ul.productGrid.productGrid--collection
 		| {% for product in collection.products %}
 		//- | 	{% include 'product-grid-item' with products_per_row %}
 		| 	{% include 'product-grid-item' with 'product-grid-item--two-per-row' %}

@@ -6,7 +6,6 @@
       width: 100%;
       float: left;
       padding: 10px;
-      border-right: 1px solid #999;
       border-bottom: 1px solid #999;
       position: relative;
 
@@ -14,6 +13,7 @@
         @include span(8 of 16 0);
         height: 400px;
         padding: 10px 0 0;
+        border-right: 1px solid #999;
       }
 
       &:nth-child(2n) {
@@ -73,6 +73,9 @@
       text-align: center;
       padding-left: 0;
       float: none;
+      position: relative;
+      top: auto;
+      transform: translateY(0);
     }
   }
 

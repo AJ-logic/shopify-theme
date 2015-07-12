@@ -1,20 +1,47 @@
 .page-cart {
 
   &__container {
-    padding-top: 100px;
-    padding-bottom: 200px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+
+    @include breakpoint($tablet) {
+      padding-top: 100px;
+      padding-bottom: 200px;
+    }
   }
+
+  &__titleBagWrap {
+    text-align: center;
+  }
+
 
   &__title {
     text-align: center;
-    font-size: 48px;
+    font-size: 32px;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    top: -24px;
+
+    @include breakpoint($tablet) {
+      display: block;
+      font-size: 48px;
+      margin: .5em 0;
+      top: auto;
+    }
   }
 
   &__bagWrap {
     width: 75px;
-    height: auto;
-    margin: 0 auto;
+    display: inline-block;
     position: relative;
+
+    @include breakpoint($tablet) {
+      width: 75px;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+    }
   }
 
   &__bag {
@@ -35,7 +62,7 @@
   }
 
   &__button {
-    display: inline-block;;
+    display: block;;
     height: 50px;
     line-height: 50px;
     padding: 0 30px;
@@ -46,17 +73,31 @@
     text-decoration: none;
     color: #000;
     background-color: #fff;
-    text-decoration: all .3s ease;
-    margin-right: 20px;
-    transition: .3s ease;
-    width: 180px;
+    transition: all .3s ease;
+    width: 100%;
+    margin: 0 auto 20px;
+    text-align: center;
+
+    @include breakpoint($tablet) {
+      width: 180px;
+      margin-right: 20px;
+      margin-bottom: 0;
+      display: inline-block;
+    }
 
     &--checkout {
-      margin-right: 0;
+      margin-right: auto;
+
+      @include breakpoint($tablet) {
+        margin-right: 0;
+      }
     }
 
     &--update {
-      float: left;
+
+      @include breakpoint($tablet) {
+        float: left;
+      }
     }
 
     &:hover {
@@ -67,12 +108,21 @@
 
   &__buttonWrap {
     overflow: hidden;
-    margin: 30px 0;
+    margin: 20px 0;
     text-align: right;
+    width: 100%;
+
+    @include breakpoint($tablet) {
+      margin: 30px 0;
+    }
 
     &--top {
       text-align: center;
-      margin-bottom: 100px;
+      margin-bottom: 20px;
+
+      @include breakpoint($tablet) {
+        margin-bottom: 100px;
+      }
     }
   }
 }

@@ -1,8 +1,9 @@
 .container.page-cart__container
-	.page-cart__bagWrap
-		img.page-cart__bag(src="{{ 'cart-black.svg' | asset_url}}")
-		span.page-cart__itemCount {{ cart.item_count }}
-	h1.page-cart__title Your cart
+	.page-cart__titleBagWrap
+		.page-cart__bagWrap
+			img.page-cart__bag(src="{{ 'cart-black.svg' | asset_url}}")
+			span.page-cart__itemCount {{ cart.item_count }}
+		h1.page-cart__title Your cart
 
 	| {% if cart.item_count > 0 %}
 
