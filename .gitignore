@@ -4,3 +4,4 @@
 /gulpfile.js/config/shopifyCredentials.js
 .sass-cache
 .DS_Store
+*.zip

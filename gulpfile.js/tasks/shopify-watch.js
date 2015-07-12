@@ -1,9 +1,9 @@
 var
   gulp                = require('gulp'),
   plugins             = require('gulp-load-plugins')(),
-  credentials         = require('../config/shopifyCredentials'),
+  credentials         = require('../config/shopifyCredentials').sc,
   config              = require('../config/shopify'),
-  options             = { "basePath": config.build };
+  options             = { "basePath": config.dest };
 
 // Shopifywatch
 gulp.task('shopify:watch', function() {
