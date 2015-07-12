@@ -1,18 +1,20 @@
 .site-header {
 
   & {
-    z-index: 50;
+    z-index: 500;
     position: relative;
     background-color: #ec008c;
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 60px;
+    height: 60px;
+    width: 100%;
     transition: transform .3s ease;
 
-    @include breakpoint($desktop-small) {
+    @include breakpoint($tablet) {
       width: 75px;
+      height: 100%;
+      z-index: 50;
     }
   }
 
@@ -21,14 +23,21 @@
   }
 
   &__title {
-    position: absolute;
-    left: 0;
-    top: 0;
     margin: 0;
-    width: 100%;
-    height: auto;
-    padding: 10px 14px 10px 10px;
+    padding: 5px;
     transition: .3s ease;
+    height: 100%;
+    width: 60px;
+    float: left;
+
+    @include breakpoint($tablet) {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 10px 14px 10px 10px;
+    }
 
     &:hover {
       background-color: #ec008c;

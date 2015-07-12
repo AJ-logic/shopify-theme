@@ -1,22 +1,39 @@
 .siteNavIcons {
 
   & {
-    width: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    float: right;
+
+    @include breakpoint($tablet) {
+      float: none;
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+    }
   }
 
   &__item {
     text-align: center;
-    margin: 30px 0;
+    float: left;
+    margin-right: 30px;
+
+    @include breakpoint($tablet) {
+      margin: 30px 0;
+      float: none;
+    }
 
     &--cart {
       color: #fff;
       line-height: 1;
+      margin-top: 10px;
+
+      @include breakpoint($tablet) {
+        margin: 0;
+      }
 
       &:hover {
 
@@ -27,15 +44,23 @@
         }
       }
     }
+
+    &--navToggle {
+      margin-top: 20px;
+    }
   }
 
   &__link {
     color: #fff;
     display: block;
-    width: 44px;
+    width: 36px;
     margin: 0 auto;
     text-decoration: none;
     position: relative;
+
+    @include breakpoint($tablet) {
+      width: 44px;
+    }
   }
 
   &__cartImage {
@@ -56,8 +81,14 @@
     text-align: center;
     position: relative;
     font-weight: 700;
-    padding-top: 14px;
+    padding-top: 12px;
     padding-left: 4px;
+
+
+    @include breakpoint($tablet) {
+      padding-top: 14px;
+      padding-left: 4px;
+    }
   }
 
   &__note {

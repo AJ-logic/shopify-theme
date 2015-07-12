@@ -7,21 +7,26 @@ $desktop-small:             1000px;
 $desktop:                   1200px;
 
 .container {
-  @include container(1200px);
+  width: 100%;
   padding: 0 20px;
 
-  @include breakpoint($desktop-small) {
+  @include breakpoint($tablet) {
     padding: 0;
+  }
+
+  @include breakpoint($desktop-small) {
+    @include container(1200px);
   }
 }
 
 .site-content {
   height: 100%;
-  padding-left: 60px;
   transition: all .3s ease;
   position: relative;
+  padding-top: 60px;
 
-  @include breakpoint($desktop-small) {
+  @include breakpoint($tablet) {
     padding-left: 75px;
+    padding-top: 0;
   }
 }

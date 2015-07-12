@@ -6,9 +6,11 @@
     background-size: cover;
     background-position: center;
     position: relative;
+    transition: all .3s ease;
 
     @include breakpoint($desktop-small) {
       height: 80%;
+      min-height: 650px;
     }
 
     &:before {

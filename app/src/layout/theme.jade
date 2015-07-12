@@ -46,7 +46,7 @@ html(lang="en")
 				a(href='/')
 					img.site-header__logo(src="{{ 'logo.svg' | asset_url }}")
 			ul.siteNavIcons
-				li.siteNavIcons__item
+				li.siteNavIcons__item.siteNavIcons__item--navToggle
 					#navToggleWrap
 						#navToggle.navToggle
 							span
@@ -67,7 +67,7 @@ html(lang="en")
 		| {% include 'site-footer' %}
 		| {% endif %}
 
-		| {{ 'script.min.js'  | asset_url | script_tag }}
+		| {{ 'scripts.min.js'  | asset_url | script_tag }}
 		| {{ 'timber.js' | asset_url | script_tag }}
 		| {% comment %}
 		| Ajaxify your cart with this plugin.

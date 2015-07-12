@@ -1,20 +1,32 @@
 $menuwidth: 260px;
 
 .is-active-menu {
+  overflow: hidden;
 
   .siteNav {
     transform: translateX(0);
   }
 
   .site-header {
-    transform: translateX($menuwidth);
+    z-index: 500;
+
+    @include breakpoint($tablet) {
+      transform: translateX($menuwidth);
+    }
   }
 
   .site-content {
-    transform: translateX($menuwidth);
+    filter: grayscale(100%);
+    opacity: .5;
+
+    @include breakpoint($tablet) {
+      transform: translateX($menuwidth);
+    }
   }
 
   .site-footer {
-    transform: translateX($menuwidth);
+    @include breakpoint($tablet) {
+      transform: translateX($menuwidth);
+    }
   }
 }

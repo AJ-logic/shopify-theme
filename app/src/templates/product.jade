@@ -88,12 +88,12 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 				div
 					| {% if collection.previous_product %}
 					| {% capture prev_url %}{{ collection.previous_product}}#content{% endcapture %}
-					span
+					//- span
 						| {{ '&larr; Previous Product' | link_to: prev_url }}
 					| {% endif %}
 					| {% if collection.next_product %}
 					| {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
-					span
+					//- span
 						| {{ 'Next Product &rarr;' | link_to: next_url }}</span>
 					| {% endif %}
 				| {% endif %}
