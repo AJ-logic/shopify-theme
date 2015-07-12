@@ -10,7 +10,7 @@ var
   plugins                 = require('gulp-load-plugins')();
 
 // Watch
-gulp.task('watch', ['setWatch', 'templates'], function() {
+gulp.task('watch', ['bower', 'setWatch', 'templates'], function() {
 
   plugins.watch(templates.source, function() { gulp.start('templates'); });
   plugins.watch(styles.base, function() { gulp.start('styles'); });
