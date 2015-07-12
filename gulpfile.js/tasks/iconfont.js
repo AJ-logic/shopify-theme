@@ -12,14 +12,19 @@ gulp.task('iconfont', function() {
   // Only if changed
   .pipe(plugins.changed(config.font_build))
 
-  // Flatten
+  // Flatten folder structure
   .pipe(plugins.flatten())
 
   // Distribute
   .pipe(gulp.dest(config.font_build));
 
+  // Start iconfont style.css replace task
   gulp.src(config.font_style)
+
+  // Replace reference to 'fonts/' with nothing
   .pipe(plugins.replace('fonts/', ''))
+
+  // Distribute
   .pipe(gulp.dest(config.font_build));
 
 });

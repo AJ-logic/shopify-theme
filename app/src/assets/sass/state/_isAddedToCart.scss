@@ -5,6 +5,7 @@
     opacity: 1;
     transform: translateX(0);
     transition: all .3s ease;
+    pointer-events: default;
   }
 
   .site-content {

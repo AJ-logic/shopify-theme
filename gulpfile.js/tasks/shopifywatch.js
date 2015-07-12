@@ -9,6 +9,8 @@ var
 gulp.task('shopifywatch', function() {
   return plugins.watch(config.build_watch)
 
+  .pipe(plugins.changed(config.build_watch))
+
   // Add secret key, etc to gulp shopify upload
   .pipe(plugins.shopifyUpload(
     credentials.api_key,
@@ -16,5 +18,9 @@ gulp.task('shopifywatch', function() {
     credentials.url,
     credentials.theme_id,
     options
-  ));
+  ))
+
+  // Notify when uploaded
+  .pipe(plugins.if(global.isWatching, plugins.notify({ message: 'upload task complete' })));
+
 });
