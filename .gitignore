@@ -1,6 +1,6 @@
 /node_modules
 /bower_components
 /app/build
-/gulpfile.js/shopify-config.js
+/gulpfile.js/config/shopifyCredentials.js
 .sass-cache
 .DS_Store
