@@ -1,24 +1,19 @@
 var
-    gulp                = require('gulp'),
-    plugins             = require('gulp-load-plugins')(),
-    config              = require('../config').templates;
+  gulp                = require('gulp'),
+  plugins             = require('gulp-load-plugins')(),
+  config              = require('../config/templates'),
+  errorHandler        = require('../lib/errorHandler');
 
-// Don't break watch on error
-var onError = function (err) {
-  plugins.util.beep();
-  console.log(err);
-  this.emit('end');
-};
 
 // Execute Jade Templates
 gulp.task('templates', function() {
   return gulp.src(config.source)
 
-  // Catch errors
-  .pipe(plugins.plumber({errorHandler: onError}))
-
   // Only build changed files
-  .pipe(plugins.changed(config.build, {extension: '.liquid'}))
+  .pipe(plugins.changed(config.dest, {extension: '.liquid'}))
+
+  // Catch errors
+  .on('error', errorHandler)
 
   .pipe(plugins.if(global.isWatching, plugins.cached('jade')))
 
@@ -32,13 +27,13 @@ gulp.task('templates', function() {
   .pipe(plugins.jade({pretty: true}))
 
   // Catch errors
-  .pipe(plugins.plumber({errorHandler: onError}))
+  .on('error', errorHandler)
 
   // Rename to something usefull for Shopify
-  .pipe(plugins.rename({extname: ".liquid"}))
+  .pipe(plugins.rename(config.rename))
 
   // Distribute to build path
-  .pipe(gulp.dest(config.build))
+  .pipe(gulp.dest(config.dest))
 
   // Show notification
   .pipe(plugins.if(global.isWatching, plugins.notify({ message: 'templates task complete' })));
