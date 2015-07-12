@@ -32,6 +32,7 @@
 @import 'modules/socialList';
 @import 'modules/product-grid';
 @import 'modules/product-grid-item';
+@import 'modules/productSlider';
 
 @import 'modules/swatch';
 @import 'modules/collection';
@@ -47,3 +48,5 @@
 
 // Vendor
 @import 'vendor/selectric';
+@import 'vendor/slick';
+@import 'vendor/slick-theme';

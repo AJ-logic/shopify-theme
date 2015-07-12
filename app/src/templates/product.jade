@@ -10,20 +10,30 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 	form#product-form.single-product__form(action="/cart/add", method="post", enctype="multipart/form-data")
 
 		div.single-product__image-wrap
-			| {% if product.images.size == 0 %}
-			img(src="{{ '' | img_url: '1024x1024' }}", alt="")
-			| {% else %}
+			| {% if product.images.size == 1 %}
 			| {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
-			a.single-product__image-link(href="{{ featured_image | img_url: '1024x1024' }}", style="background-image:url({{ featured_image | img_url: '1024x1024' }});")
+			.single-product__image-link(href="{{ featured_image | img_url: '1024x1024' }}", style="background-image:url({{ featured_image | img_url: '1024x1024' }});")
+			| {% endif %}
+			//- | {% if product.images.size == 0 %}
+			//- img(src="{{ '' | img_url: '1024x1024' }}", alt="")
+			//- | {% else %}
+			//- | {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+			//- .single-product__image-link(href="{{ featured_image | img_url: '1024x1024' }}", style="background-image:url({{ featured_image | img_url: '1024x1024' }});")
+			//- | {% if product.images.size > 1 %}
+			//- ul.single-product__thumbs
+			//- 	| {% for image in product.images %}
+			//- 	li
+			//- 		a(href="{{ image | img_url: '1024x1024' }}")
+			//- 			img(src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}")
+			//- 	| {% endfor %}
+			//- | {% endif %}
 			| {% if product.images.size > 1 %}
-			ul
+			.productSlider#productSlider
 				| {% for image in product.images %}
-				li
-					a(href="{{ image | img_url: '1024x1024' }}")
-						img(src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}")
+				.productSlider__item(style="background-image:url({{ image | img_url: '1024x1024' }});")
 				| {% endfor %}
 			| {% endif %}
-			| {% endif %}
+			//- | {% endif %}
 
 		div.single-product__content-wrap
 			h1.single-product__title(itemprop="name")

@@ -43,7 +43,11 @@
 							a.cartTable__titleLink(href="{{ collection_url }}{{ item.url }}")
 								| {{ item.product.title }}
 						h3.cartTable__variantTitle
+							| {% if item.product.variants.size == 1 %}
+							| {% else %}
 							| {{ item.variant.title }}
+							| {% endif %}
+
 
 
 						| {% assign properties_amount = item.properties | size %}

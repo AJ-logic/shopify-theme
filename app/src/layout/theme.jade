@@ -55,7 +55,7 @@ html(lang="en")
 						.siteNavIcons__count#cartCount
 							| {{ cart.item_count }}
 						img.siteNavIcons__cartImage(src="{{ 'cart.svg' | asset_url }}")
-			.cartTooltip
+			a.cartTooltip(href='/cart')
 				.cartTooltip__content
 					| your product has been added to the cart
 				i.cartTooltip__check.icon-check
