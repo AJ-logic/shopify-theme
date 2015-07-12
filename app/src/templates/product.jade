@@ -154,6 +154,7 @@ script.
 				// Variant is sold out.
 				jQuery('#backorder').addClass('hidden');
 				jQuery('#add').val({{ sold_out | json }}).addClass('disabled').prop('disabled', true);
+				console.log('niethier');
 			}
 
 			// Whether the variant is in stock or not, we can update the price and compare at price.
@@ -181,10 +182,13 @@ script.
 
 
 
+		jQuery(".single-option-selector:eq(0)").prop('selectedIndex', 2).trigger('change');
+
+
+
 		// Add label if only one product option and it isn't 'Title'.
 		{% if product.options.size == 1 and product.options.first != 'Title' %}
 		$('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
-		$('.single-option-selector:eq(0)').val("l").trigger('change');
 		{% endif %}
 
 

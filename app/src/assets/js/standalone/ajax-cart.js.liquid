@@ -192,7 +192,7 @@ var ajaxCart = (function(module, $) {
     // Take over the add to cart form submit action if ajax enabled
     // if (!settings.disableAjaxCart && $addToCart.length) {
       formOverride();
-      console.log('override form');
+      // console.log('override form');
     // }
 
     // Run this function in case we're using the quantity selector outside of the cart
@@ -258,7 +258,7 @@ var ajaxCart = (function(module, $) {
 
     if (!!data.message) {
       if (data.status == 422) {
-        console.log('error');
+        // console.log('error');
         $('.single-product__errorWrap').append('<div class="errors qty-error">'+ data.description +'</div>');
         $('#add').addClass('disabled');
       }
