@@ -4,12 +4,13 @@
 
     &--two-per-row {
       width: 100%;
-      height: auto;
-      padding: 10px 0;
+      float: left;
+      padding: 10px;
       border-right: 1px solid #999;
       border-bottom: 1px solid #999;
+      position: relative;
 
-      @include breakpoint($desktop-small) {
+      @include breakpoint($tablet) {
         @include span(8 of 16 0);
         height: 400px;
         padding: 10px 0 0;
@@ -28,7 +29,7 @@
       }
 
       .product-grid-item__title-price {
-        background-color: #fff;
+        // background-color: #fff;
       }
     }
   }
@@ -41,10 +42,17 @@
 
   &__image {
     display: block;
-    height: 320px;
-    width: auto;
-    margin: 0 auto;
+    width: 45%;
+    height: auto;
+    float: left;
     transition: transform .5s ease;
+
+    @include breakpoint($tablet) {
+      height: 320px;
+      width: auto;
+      float: none;
+      margin: 0 auto;
+    }
   }
 
   &__title-price {
@@ -54,7 +62,18 @@
     width: 100%;
     display: block;
     line-height: 1.5;
-    text-align: center;
+    padding-left: 10px;
+    float: left;
+    position: absolute;
+    padding-left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include breakpoint($tablet) {
+      text-align: center;
+      padding-left: 0;
+      float: none;
+    }
   }
 
   &__title {
