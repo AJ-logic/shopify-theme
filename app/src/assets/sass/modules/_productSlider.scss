@@ -19,38 +19,34 @@
     background-repeat: no-repeat;
   }
 
-  &__thumbsWrap {
+  .slick-dots {
     position: absolute;
-    left: 20px;
     top: 50%;
-    width: 60px;
-    transform: translateY(-50%);
+    left: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
-  }
+    width: 60px;
+    transform: translateY(-50%);
 
-  &__thumbWrap {
-    margin-bottom: 10px;
-  }
+    li {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      transition: border .2s ease;
 
-  &__thumb {
-    width: 100%;
-    height: 70px;
-    border: 1px solid #999;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 20px;
-
-    &:last-child {
-      margin-bottom: 0;
+      &.slick-active {
+        border: 1px solid #000;
+      }
     }
   }
 
-  &__thumbImage {
-    display: block;
+  &__thumb {
+    cursor: pointer;
     width: 100%;
-    height: auto;
+    height: 70px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }

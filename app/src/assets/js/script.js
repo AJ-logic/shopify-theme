@@ -21,12 +21,17 @@ jQuery(document).ready(function($) {
     });
 
     $('#productSlider').slick({
-      dots: false,
+      dots: true,
       infinite: true,
       speed: 500,
       fade: true,
       cssEase: 'linear',
-      arrows: false
+      arrows: false,
+      customPaging: function(slider, i) {
+        var bg =  $(slider.$slides[i]).css('background-image');
+        // bg = bg.replace('url(','').replace(')','');
+        return '<div class="productSlider__thumb" style="background-image:' + bg + '"></div>';
+      },
     });
 
     $('#productSliderThumbs').slick({
