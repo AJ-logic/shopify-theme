@@ -5,7 +5,6 @@
     width: 100%;
     height: auto;
     border: 2px solid #fff;
-    border-right: none;
     background-color: #ec008c;
     color: #fff;
     font-size: 18px;
@@ -25,7 +24,7 @@
       left: 75px;
       transform: translateX(40px);
       width: 300px;
-      border-right: 2px solid #fff;
+      padding: 10px 20px;
     }
 
     &:after,

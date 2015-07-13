@@ -27,13 +27,24 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 			//- 			img(src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}")
 			//- 	| {% endfor %}
 			//- | {% endif %}
-			| {% if product.images.size > 1 %}
-			.productSlider#productSlider
-				| {% for image in product.images %}
-				.productSlider__item(style="background-image:url({{ image | img_url: '1024x1024' }});")
-				| {% endfor %}
-			| {% endif %}
-			//- | {% endif %}
+			.productSlider__wrap
+				| {% if product.images.size > 1 %}
+				.productSlider#productSlider
+					| {% for image in product.images %}
+					.productSlider__item(style="background-image:url({{ image | img_url: '1024x1024' }});")
+					| {% endfor %}
+				| {% endif %}
+				| {% if product.images.size > 1 %}
+				.productSlider__thumbsWrap
+					.productSlider__thumbs#productSliderThumbs
+						| {% for image in product.images %}
+						.productSlider__thumbWrap
+							.productSlider__thumb(style="background-image:url({{ image | img_url: '1024x1024' }});")
+						//- .productSlider__thumb
+							img.productSlider__thumbImage(src="{{ image | img_url: '1024x1024' }};")
+						| {% endfor %}
+					| {% endif %}
+				//- | {% endif %}
 
 		div.single-product__content-wrap
 			h1.single-product__title(itemprop="name")

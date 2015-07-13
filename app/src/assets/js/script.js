@@ -21,11 +21,22 @@ jQuery(document).ready(function($) {
     });
 
     $('#productSlider').slick({
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       fade: true,
       cssEase: 'linear',
       arrows: false
+    });
+
+    $('#productSliderThumbs').slick({
+      dots: false,
+      infinite: true,
+      speed: 500,
+      fade: false,
+      cssEase: 'linear',
+      arrows: false,
+      vertical: true,
+      slidesToShow: 2
     });
 });
