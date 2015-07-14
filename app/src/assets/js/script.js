@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
     var optionIndex = $(this).closest('.swatch').attr('data-option-index');
     var optionValue = $(this).val();
     var productForm = $(this).closest('form');
-    $(this).closest('form').find('.single-option-selector').eq(optionIndex).val(optionValue).trigger('change');
+    // $(this).closest('form').find('.single-option-selector').eq(optionIndex).val(optionValue).trigger('change');
   });
 
   var body = $('body');
@@ -17,20 +17,6 @@ jQuery(document).ready(function($) {
     } else {
       body.addClass('is-active-menu');
       $('#navToggle').addClass('menu-open');
-    }
-  });
-
-  $('#productSlider').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    fade: true,
-    cssEase: 'ease',
-    arrows: true,
-    customPaging: function(slider, i) {
-      var bg =  $(slider.$slides[i]).css('background-image');
-      // bg = bg.replace('url(','').replace(')','');
-      return '<div class="productSlider__thumb" style="background-image:' + bg + '"></div>';
     }
   });
 });

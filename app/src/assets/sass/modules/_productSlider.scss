@@ -30,7 +30,7 @@
     transform: translateY(-50%);
     display: none !important;
 
-    @include breakpoint($tablet) {
+    @include breakpoint($desktop-small) {
       display: block!important;
     }
 
@@ -69,7 +69,7 @@
       border-style: solid;
     }
 
-    @include breakpoint($tablet) {
+    @include breakpoint($desktop-small) {
       display: none!important;
     }
   }
@@ -91,7 +91,6 @@
       border-color: transparent transparent transparent #ec008c;
     }
   }
-
 
   &__thumb {
     cursor: pointer;
