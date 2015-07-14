@@ -193,17 +193,18 @@ script.
 		});
 
 		//- $('.swatch input[type=radio]').each(function(index) {
-		//- 	console.log($(this), index);
-
-		//- 	if($(this).eq(0).val() == 0) {
-		//- 		$(".single-option-selector:eq(0)").prop('selectedIndex', 2).trigger('change');
-		//- 		console.log('disabled');
+		//- 	if($(this).is(':enabled')) {
+		//- 		if($(this).val() == 'M') {
+		//- 			console.log($(this).index())
+		//- 			$(".single-option-selector:eq(0)").prop('selectedIndex', 0).trigger('change');
+		//- 		}
 		//- 	} else {
-		//- 		console.log('enabled');
+		//- 		console.log('disabled');
 		//- 	}
+
 		//- });
 
-		$('.swatch input[type=radio]').slice(2,3).each(function() {
+		$('.swatch :radio').slice(2,3).each(function() {
 			if($(this).is(':enabled')) {
 				$(".single-option-selector:eq(0)").prop('selectedIndex', 2).trigger('change');
 			} else {
