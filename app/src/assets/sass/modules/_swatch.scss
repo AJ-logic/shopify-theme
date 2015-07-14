@@ -3,8 +3,8 @@
   & {
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    text-align: center;
+    overflow: left;
+    text-align: left;
     font-family: $headerfont;
     text-transform: uppercase;
 
@@ -22,7 +22,7 @@
     margin-bottom: 10px;
     border-bottom: 1px solid #999;
     padding-bottom: 5px;
-    text-align: center;
+    text-align: left;
 
     @include breakpoint($tablet) {
       text-align: left;
