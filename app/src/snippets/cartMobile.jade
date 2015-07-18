@@ -1,0 +1,34 @@
+form.page-cart__mobile(action='/cart', method='post')
+	.page-cart__buttonWrap.page-cart__buttonWrap--mobile
+		a.page-cart__button(href="{{ continue_shopping_url }}") Continue shopping
+		input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
+	.cartMobile
+		| {% for item in cart.items %}
+		|   {% if forloop.first %}
+		|   {% assign continue_shopping_url = collection_url %}
+		| {% endif %}
+		.cartMobile__product
+			a.cartMobile__productImageLink(href="{{ collection_url }}{{ item.url }}")
+				img.cartMobile__productImage(src="{{ item | img_url: 'compact' }}",  alt="{{ item.title | escape }}")
+			.cartMobile__desc
+				h3.cartMobile__productTitle
+					a.cartMobile__productTitleLink(href="{{ collection_url }}{{ item.url }}")
+						| {{ item.product.title }}
+				h3.cartMobile__productVariantTitle
+					| {% if item.product.variants.size == 1 %}
+					| {% else %}
+					| size:
+					| {{ item.variant.title }}
+					| {% endif %}
+				span.cartMobile__productPrice
+					| Price: {{ item.price | money }}
+				.cartMobile__productQuantity
+					input(type="number", name="updates[]", id="updates_{{ item.id }}", class="quantity cartMobile__productQuantityInput", value="{{ item.quantity }}")
+				a.cartMobile__productRemoveLink(href="/cart/change?line={{ forloop.index }}&quantity=0")
+						i.icon-bin
+				button.cartMobile__productUpdate(type="submit", name="update" value='submit')
+					i.icon-loop
+				.cartMobile__totalPrice
+					span.cartMobile__totalPriceIndex total:
+					span.cartMobile__totalPriceValue {{ item.line_price | money }}
+		| {% endfor %}

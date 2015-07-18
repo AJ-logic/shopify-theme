@@ -1,0 +1,96 @@
+form.page-cart__desktop(action='/cart', method='post')
+	|   {% assign collection_url = item.product.collections.last.url %}
+	|   {% if collection_url == '/collections/frontpage' or collection_url == blank %}
+	|   {% assign collection_url = '/collections/all' %}
+	|   {% endif %}
+
+	| {% assign continue_shopping_url = collection_url %}
+
+	.page-cart__buttonWrap.page-cart__buttonWrap--top
+		a.page-cart__button(href="{{ continue_shopping_url }}") Continue shopping
+		input.page-cart__button.page-cart__button(type="submit", name="checkout", value="Check out")
+
+	table.cartTable
+		thead
+			tr
+				th Item
+				th &nbsp;
+				th Price
+				th Quantity
+				th Total
+				th &nbsp;
+		tbody
+
+			| {% for item in cart.items %}
+			|   {% if forloop.first %}
+			|   {% assign continue_shopping_url = collection_url %}
+			| {% endif %}
+
+			tr.cartTable__row
+				td
+					a.cartTable__imageLink(href="{{ collection_url }}{{ item.url }}")
+						img.cartTable__image(src="{{ item | img_url: 'compact' }}",  alt="{{ item.title | escape }}")
+				td
+					h2.cartTable__title
+						a.cartTable__titleLink(href="{{ collection_url }}{{ item.url }}")
+							| {{ item.product.title }}
+					h3.cartTable__variantTitle
+						| {% if item.product.variants.size == 1 %}
+						| {% else %}
+						| {{ item.variant.title }}
+						| {% endif %}
+
+					| {% assign properties_amount = item.properties | size %}
+					| {% if properties_amount > 0 %}
+					p
+						| {% for p in item.properties %}
+						| {% unless p.last == blank %}
+						|   {{ p.first }}:
+						|   {% if p.last contains '/uploads/' %}
+						a(href="{{ p.last }}")
+							| {{ p.last | split: '/' | last }}
+						|   {% else %}
+						|   {{ p.last }}
+						|   {% endif %}
+						br
+						| {% endunless %}
+						| {% endfor %}
+
+					| {% endif %}
+					//- h3.cartTable__vendor
+						| {{ item.vendor }}
+
+				td.cartTable__price
+					| {{ item.price | money }}
+
+
+				td.cartTable__quantity
+					input(type="number", name="updates[]", id="updates_{{ item.id }}", class="quantity cartTable__quantityInput", value="{{ item.quantity }}")
+
+				td.cartTable__itemTotal
+					| {{ item.line_price | money }}
+				td.cartTable__remove
+					a.cartTable__removeLink(href="/cart/change?line={{ forloop.index }}&quantity=0")
+						i.icon-bin
+		| {% endfor %}
+		tfoot
+			tr
+				th
+					h3.cartTable__total Subtotal
+				th &nbsp;
+				th &nbsp;
+				th &nbsp;
+				th &nbsp;
+				th.cartTable__totalPrice {{ cart.total_price | money }}
+
+
+	.page-cart__buttonWrap
+		input.page-cart__button.page-cart__button--update(type="submit", name="update", value="Update cart")
+		.page-cart__continueCheckout
+			a.page-cart__button.page-cart__button--continue(href="{{ continue_shopping_url }}") Continue shopping
+			input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
+
+	| {% if additional_checkout_buttons %}
+	.page-cart__additional
+		| {{ content_for_additional_checkout_buttons }}
+	| {% endif %}

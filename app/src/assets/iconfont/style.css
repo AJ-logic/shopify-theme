@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'cfyeshop';
-	src:url('fonts/cfyeshop.eot?-vo54gn');
-	src:url('fonts/cfyeshop.eot?#iefix-vo54gn') format('embedded-opentype'),
-		url('fonts/cfyeshop.ttf?-vo54gn') format('truetype'),
-		url('fonts/cfyeshop.woff?-vo54gn') format('woff'),
-		url('fonts/cfyeshop.svg?-vo54gn#cfyeshop') format('svg');
+	src:url('fonts/cfyeshop.eot?-fan8nd');
+	src:url('fonts/cfyeshop.eot?#iefix-fan8nd') format('embedded-opentype'),
+		url('fonts/cfyeshop.ttf?-fan8nd') format('truetype'),
+		url('fonts/cfyeshop.woff?-fan8nd') format('woff'),
+		url('fonts/cfyeshop.svg?-fan8nd#cfyeshop') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -31,6 +31,9 @@
 }
 .icon-bin:before {
 	content: "\eabd";
+}
+.icon-loop:before {
+	content: "\ebb4";
 }
 .icon-google-plus:before {
 	content: "\ec54";

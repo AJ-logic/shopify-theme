@@ -9,16 +9,21 @@
     width: 100%;
     height: auto;
     float: left;
+    overflow: hidden;
     background-color: #fff;
     border: 1px solid #999;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 10px 10px 20px;
+    position: relative;
+    font-family: $headerfont;
+    min-height: 140px;
   }
 
   &__productImageLink {
     display: block;
     float: left;
     margin-right: 30px;
+    width: 20%;
   }
 
   &__productImage {
@@ -27,8 +32,22 @@
     height: auto;
   }
 
+  &__desc {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 30%;
+    padding-right: 10px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+  }
+
   &__productTitle {
     margin: 0;
+    padding-right: 20px;
+    font-size: 16px;
   }
 
   &__productTitleLink {
@@ -38,10 +57,53 @@
 
   &__productVariantTitle {
     margin: 0;
-    color: #999;
+    color: #000;
+    margin-right: 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  &__productPrice {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  &__productQuantity {
+    float: left;
+    width: 50px;
   }
 
   &__productQuantityInput {
     float: left;
+  }
+
+  &__totalPrice {
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+
+  &__totalPriceValue {
+    float: right;
+  }
+
+  &__productUpdate {
+    display: block;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    float: right;
+  }
+
+  &__productRemoveLink {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    text-decoration: none;
+    color: darken(#ff0000, 10%);
   }
 }
