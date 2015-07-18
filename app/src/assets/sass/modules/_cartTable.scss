@@ -5,10 +5,15 @@
     overflow: hidden;
     border: 1px solid #ccc;
     color: #999;
+    display: none;
+
+    @include breakpoint($tablet) {
+      display: table;
+    }
   }
 
   thead {
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     padding: 10px;
     line-height: 4;
     text-transform: uppercase;
@@ -17,12 +22,16 @@
 
     th {
       text-align: left;
-      padding-left: 30px;
+      padding-left: 15px;
+
+      @include breakpoint($desktop) {
+        padding-left: 30px;
+      }
     }
   }
 
   tfoot {
-    border: 1px solid #ccc;
+
     padding: 10px;
     line-height: 4;
 
@@ -33,7 +42,11 @@
   }
 
   td {
-    padding-left: 30px;
+    padding-left: 15px;
+
+    @include breakpoint($desktop) {
+      padding-left: 30px;
+    }
 
     &:first-of-type {
       padding-left: 0;
@@ -57,6 +70,7 @@
   &__title {
     font-size: 20px;
     margin: 0;
+    min-width: 150px;
   }
 
   &__titleLink {
@@ -68,6 +82,12 @@
     font-size: 16px;
     text-transform: uppercase;
     margin-bottom: 0;
+  }
+
+  &__quantityInput {
+    width: 50px;
+    display: block;
+    margin: 0 auto;
   }
 
   &__vendor {
@@ -103,5 +123,6 @@
     font-size: 20px;
     color: #666;
     font-weight: 700;
+    padding-right: 20px;
   }
 }

@@ -76,7 +76,7 @@ html(lang="en")
 		| {% endcomment %}
 
 		| {{ 'handlebars.min.js' | asset_url | script_tag }}
-		| {% include 'cart-ajax' %}
+		//- | {% include 'cart-ajax' %}
 		| {{ 'ajax-cart.js' | asset_url | script_tag }}
 		script.
 			jQuery(function($) {

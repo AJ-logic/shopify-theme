@@ -7,7 +7,39 @@
 
 	| {% if cart.item_count > 0 %}
 
-	form(action='/cart', method='post')
+	form.page-cart__mobile(action='/cart', method='post')
+		.page-cart__buttonWrap.page-cart__buttonWrap--mobile
+			a.page-cart__button(href="{{ continue_shopping_url }}") Continue shopping
+			input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
+		.cartMobile
+			| {% for item in cart.items %}
+			| 	{% if forloop.first %}
+			|		{% assign continue_shopping_url = collection_url %}
+			|	{% endif %}
+			.cartMobile__product
+				a.cartMobile__productImageLink(href="{{ collection_url }}{{ item.url }}")
+					img.cartMobile__productImage(src="{{ item | img_url: 'compact' }}",  alt="{{ item.title | escape }}")
+				.cartMobile__desc
+					h3.cartMobile__productTitle
+						a.cartMobile__productTitleLink(href="{{ collection_url }}{{ item.url }}")
+							| {{ item.product.title }}
+					h3.cartMobile__productVariantTitle
+						| {% if item.product.variants.size == 1 %}
+						| {% else %}
+						| {{ item.variant.title }}
+						| {% endif %}
+					span.cartMobile__productPrice
+						| {{ item.price | money }}
+					.cartMobile__productQuantity
+						input(type="number", name="updates[]", id="updates_{{ item.id }}", class="quantity cartMobile__productQuantityInput", value="{{ item.quantity }}")
+					a.cartMobile__productRemoveLink(href="/cart/change?line={{ forloop.index }}&quantity=0")
+							i.icon-bin
+					input.cartMobile__productUpdate(type="submit", name="update", value="Update cart")
+			| {% endfor %}
+
+
+
+	form.page-cart__desktop(action='/cart', method='post')
 		| 	{% assign collection_url = item.product.collections.last.url %}
 		| 	{% if collection_url == '/collections/frontpage' or collection_url == blank %}
 		|		{% assign collection_url = '/collections/all' %}
@@ -17,7 +49,7 @@
 
 		.page-cart__buttonWrap.page-cart__buttonWrap--top
 			a.page-cart__button(href="{{ continue_shopping_url }}") Continue shopping
-			input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
+			input.page-cart__button.page-cart__button(type="submit", name="checkout", value="Check out")
 
 		table.cartTable
 			thead
@@ -49,8 +81,6 @@
 							| {{ item.variant.title }}
 							| {% endif %}
 
-
-
 						| {% assign properties_amount = item.properties | size %}
 						| {% if properties_amount > 0 %}
 						p
@@ -76,7 +106,8 @@
 
 
 					td.cartTable__quantity
-						input(type="number", name="updates[]", id="updates_{{ item.id }}", class="quantity", value="{{ item.quantity }}")
+						input(type="number", name="updates[]", id="updates_{{ item.id }}", class="quantity cartTable__quantityInput", value="{{ item.quantity }}")
+
 					td.cartTable__itemTotal
 						| {{ item.line_price | money }}
 					td.cartTable__remove
@@ -96,11 +127,12 @@
 
 		.page-cart__buttonWrap
 			input.page-cart__button.page-cart__button--update(type="submit", name="update", value="Update cart")
-			a.page-cart__button(href="{{ continue_shopping_url }}") Continue shopping
-			input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
+			.page-cart__continueCheckout
+				a.page-cart__button.page-cart__button--continue(href="{{ continue_shopping_url }}") Continue shopping
+				input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
 
 		| {% if additional_checkout_buttons %}
-		p
+		.page-cart__additional
 			| {{ content_for_additional_checkout_buttons }}
 		| {% endif %}
 

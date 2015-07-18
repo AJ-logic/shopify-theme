@@ -1,0 +1,47 @@
+.cartMobile {
+
+  & {
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+
+  &__product {
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: #fff;
+    border: 1px solid #999;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  &__productImageLink {
+    display: block;
+    float: left;
+    margin-right: 30px;
+  }
+
+  &__productImage {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__productTitle {
+    margin: 0;
+  }
+
+  &__productTitleLink {
+    color: #000;
+    text-decoration: none;
+  }
+
+  &__productVariantTitle {
+    margin: 0;
+    color: #999;
+  }
+
+  &__productQuantityInput {
+    float: left;
+  }
+}

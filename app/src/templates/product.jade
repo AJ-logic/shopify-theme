@@ -3,12 +3,9 @@
 | {% assign unavailable = 'Unavailable' %}
 
 article.single-product(itemscope, itemtype="http://schema.org/Product")
-
 	meta(itemprop="url", content="{{ shop.url }}{{ product.url }}")
 	meta(itemprop="image", content="{{ product | img_url: 'grande' }}")
-
 	#product-form.single-product__form
-
 		div.single-product__image-wrap
 			| {% if product.images.size == 1 %}
 			| 	{% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
