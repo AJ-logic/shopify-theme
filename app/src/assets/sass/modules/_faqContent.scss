@@ -6,22 +6,12 @@
 
   h2 {
     margin: 0;
-
-    &.isHidden {
-      visibility: hidden;
-    }
+    cursor: pointer;
   }
 
   p {
-    max-height: 400px;
     transition: all .3s linear;
     display: block;
-
-    &.isHidden {
-      visibility: hidden;
-      max-height: 0;
-      margin: 0;
-    }
   }
 
   &__answer {
@@ -32,7 +22,7 @@
 
     &.isActive {
       visibility: visible;
-      max-height: 400px;
+      max-height: 600px;
       opacity: 1;
     }
   }
