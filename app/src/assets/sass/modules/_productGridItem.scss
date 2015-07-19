@@ -85,6 +85,11 @@
     text-transform: uppercase;
     font-weight: 700;
     font-family: $headerfont;
+    width: 75%;
+
+    @include breakpoint($tablet) {
+      width: auto;
+    }
   }
 
   &__price {
