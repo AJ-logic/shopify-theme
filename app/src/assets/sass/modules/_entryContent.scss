@@ -1,0 +1,28 @@
+.entryContent {
+
+  ul {
+    line-height: 1.5;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  a {
+    color: #ec008c;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+}

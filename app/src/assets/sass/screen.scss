@@ -39,10 +39,12 @@
 @import 'modules/collection';
 @import 'modules/cartTable';
 @import 'modules/cartMobile';
+@import 'modules/entryContent';
 
 // Page
 @import 'pages/page-collection';
 @import 'pages/page-cart';
+@import 'pages/page-about';
 
 // State
 @import 'state/is-active-menu';
