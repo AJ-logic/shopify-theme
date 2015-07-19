@@ -1,0 +1,39 @@
+.faqContent {
+
+  & {
+
+  }
+
+  h2 {
+    margin: 0;
+
+    &.isHidden {
+      visibility: hidden;
+    }
+  }
+
+  p {
+    max-height: 400px;
+    transition: all .3s linear;
+    display: block;
+
+    &.isHidden {
+      visibility: hidden;
+      max-height: 0;
+      margin: 0;
+    }
+  }
+
+  &__answer {
+    visibility: hidden;
+    max-height: 0;
+    transition: all .3s ease;
+    opacity: 0;
+
+    &.isActive {
+      visibility: visible;
+      max-height: 400px;
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+
+.page-about__image(style="background-image:url({{ 'about-image.jpg' | asset_url }});")
+
+.page-about__content
+	h1.page-about__title
+		| {{ page.title }}
+	.entryContent.faqContent
+		| {{ page.content }}
