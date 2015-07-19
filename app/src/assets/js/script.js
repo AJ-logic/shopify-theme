@@ -29,11 +29,12 @@ jQuery(document).ready(function($) {
     $(this).nextUntil('h2').wrapAll('<div class="faqContent__answer"></div>');
 
     $(this).on('click', function() {
-      // $('.faqContent__answer').removeClass('isActive');
-      if(!$(this).next().hasClass('isActive')) {
-        $(this).next().addClass('isActive');
+      var faqAnswer = $(this).next();
+
+      if(!faqAnswer.hasClass('isActive')) {
+        faqAnswer.addClass('isActive');
       } else {
-        $(this).next().removeClass('isActive');
+        faqAnswer.removeClass('isActive');
       }
     });
   });
