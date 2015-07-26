@@ -1,7 +1,9 @@
 .footerSocialList {
 
   & {
-    @include span(last 3 of 12);
+    @include breakpoint($tablet) {
+      @include span(last 3 of 12);
+    }
   }
 
   &__title {
@@ -23,8 +25,5 @@
 
   &__icon {
     fill: #fff!important;
-    path {
-       fill: #fff!important;
-     }
   }
 }

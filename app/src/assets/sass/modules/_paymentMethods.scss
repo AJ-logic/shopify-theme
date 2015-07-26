@@ -1,6 +1,8 @@
 .paymentMethods {
 
   & {
+    width: 100%;
+    overflow: hidden;
 
     @include breakpoint($tablet) {
       @include span(6 of 12);
