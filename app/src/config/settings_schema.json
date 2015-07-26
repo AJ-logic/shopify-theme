@@ -43,19 +43,78 @@
       },
       {
         "type":      "header",
-        "content":   "Row images"
+        "content":   "Row image 1"
       },
       {
         "type": "image",
-        "id": "row-image-01",
+        "id": "home-row-01.jpg",
         "label": "Row image 1"
       },
       {
         "type": "text",
-        "id": "logo_max_width",
-        "label": "Max Logo Width",
-        "default": "450",
-        "info": "Defines the CSS max-width."
+        "id": "row-text-01",
+        "label": "Text for first row image block"
+      },
+      {
+        "type": "text",
+        "id": "row-link-01",
+        "label": "Link for first row image block"
+      },
+      {
+        "type": "checkbox",
+        "id": "row-target-01",
+        "default": false,
+        "label": "Open in new tab/window?"
+      },
+      {
+        "type":      "header",
+        "content":   "Row image 2"
+      },
+      {
+        "type": "image",
+        "id": "home-row-02.jpg",
+        "label": "Row image 2"
+      },
+      {
+        "type": "text",
+        "id": "row-text-02",
+        "label": "Text for second row image block"
+      },
+       {
+        "type": "text",
+        "id": "row-link-02",
+        "label": "Link for second row image block"
+      },
+      {
+        "type": "checkbox",
+        "id": "row-target-02",
+        "default": false,
+        "label": "Open in new tab/window?"
+      },
+      {
+        "type":      "header",
+        "content":   "Row image 3"
+      },
+      {
+        "type": "image",
+        "id": "home-row-03.jpg",
+        "label": "Row image 3"
+      },
+      {
+        "type": "text",
+        "id": "row-text-03",
+        "label": "Text for third row image block"
+      },
+       {
+        "type": "text",
+        "id": "row-link-03",
+        "label": "Link for third row image block"
+      },
+      {
+        "type": "checkbox",
+        "id": "row-target-03",
+        "default": false,
+        "label": "Open in new tab/window?"
       }
     ]
   },

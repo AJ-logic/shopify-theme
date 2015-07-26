@@ -6,33 +6,37 @@
 .hero(style="background-image: url( {{ 'leader-image.jpg' | asset_url }} );")
 	.hero__content
 		.hero__content-container.container
-			h2.hero__title {{ settings.hero_text }}
+			h2.hero__title
+				a.hero__titleLink(href='/collections/all/', target="{% if settings.row-text-01 %}_blank {% else %} _self {% endif %}") {{ settings.hero_text }}
 			a.hero__cta(href='/collections/all/') {{ settings.hero_button_text }}
 .heroRow
+
 	.heroRow__item
-		a.heroRow__item-link(href='#')
+		a.heroRow__item-link(href='{{ settings.row-link-01 }}', target="{% if settings.row-text-01 %}_blank {% else %} _self {% endif %}")
 			.heroRow__item-content-wrap
 				.heroRow__item-content-inner
-					h3.heroRow__item-title CFYE x<br/>Meneer de Zwart
+					h3.heroRow__item-title {{ settings.row-text-01 }}
 					//- .heroRow__item-button Shop now
 		img.heroRow__image(src="{{ 'home-row-01.jpg' | asset_url }}")
+
 	.heroRow__item
-		a.heroRow__item-link(href='#')
+		a.heroRow__item-link(href='{{ settings.row-link-02 }}', target="{% if settings.row-text-02 %}_blank {% else %} _self {% endif %}")
 			.heroRow__item-content-wrap
 				.heroRow__item-content-inner
-					h3.heroRow__item-title Free<br/>stickerpack!
+					h3.heroRow__item-title {{ settings.row-text-02 }}
 		img.heroRow__image(src="{{ 'home-row-02.jpg' | asset_url }}")
+
 	.heroRow__item
-		a.heroRow__item-link(href='#')
+		a.heroRow__item-link(href='{{ settings.row-link-03 }}', target="{% if settings.row-text-03 %}_blank {% else %} _self {% endif %}")
 			.heroRow__item-content-wrap
 				.heroRow__item-content-inner
-					h3.heroRow__item-title Visit<br/>our website
+					h3.heroRow__item-title {{ settings.row-text-03 }}
 		img.heroRow__image(src="{{ 'home-row-03.jpg' | asset_url }}")
 
 .site-newsletter
 	.site-newsletter__inner
 		.container
-			h3.site-newsletter__title Sign up to our newsletter<br/>and stay up to date!
+			h3.site-newsletter__title Subscribe to our newsletter
 			//- Begin MailChimp Signup Form
 			#mc_embed_signup
 				form#mc-embedded-subscribe-form.site-newsletter__form.validate(action="//cfye.us2.list-manage.com/subscribe/post?u=9017bc446315b0e178f438760&id=ddc16c6dc2", method="post", name="mc-embedded-subscribe-form", target="_blank", novalidate="")

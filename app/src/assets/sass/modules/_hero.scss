@@ -109,6 +109,11 @@
     }
   }
 
+  &__titleLink {
+    text-decoration: none;
+    color: #fff;
+  }
+
   &__cta {
     display: inline-block;
     margin: 0 auto;
