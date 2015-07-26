@@ -90,7 +90,7 @@ form.page-cart__desktop(action='/cart', method='post')
 			a.page-cart__button.page-cart__button--continue(href="{{ continue_shopping_url }}") Continue shopping
 			input.page-cart__button.page-cart__button--checkout(type="submit", name="checkout", value="Check out")
 
-	| {% if additional_checkout_buttons %}
-	.page-cart__additional
-		| {{ content_for_additional_checkout_buttons }}
-	| {% endif %}
+	//- | {% if additional_checkout_buttons %}
+	//- .page-cart__additional
+	//- 	| {{ content_for_additional_checkout_buttons }}
+	//- | {% endif %}
