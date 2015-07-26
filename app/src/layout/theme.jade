@@ -7,7 +7,7 @@ html(lang="en")
 		meta(name="description", content="{{ page_description | escape }}")
 		link(rel="canonical", href="{{ canonical_url }}")
 		meta(name="viewport", content="width=device-width, initial-scale=1")
-
+		meta(name='theme-color', content='#ec008c')
 		link(rel='apple-touch-icon', sizes='180x180', href="{{ 'apple-touch-icon.png' | asset_url }}")
 		link(rel='icon', type='image/png', href="{{ 'favicon-96x96.png' | asset_url }}", sizes='96x96')
 		meta(name='msapplication-TileColor', content='#ec008c')
@@ -37,6 +37,8 @@ html(lang="en")
 			jQuery('html').removeClass('no-js').addClass('js');
 
 	body(id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}page-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}")
+		| {% include 'sprite.symbol' %}
+
 		| {% include 'cart-small' %}
 
 		| {% include 'site-nav' %}

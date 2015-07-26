@@ -1,0 +1,30 @@
+.footerSocialList {
+
+  & {
+    @include span(last 3 of 12);
+  }
+
+  &__title {
+    margin: 0 0 7px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    width: 23px;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  &__icon {
+    fill: #fff!important;
+    path {
+       fill: #fff!important;
+     }
+  }
+}

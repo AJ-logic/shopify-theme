@@ -9,6 +9,9 @@ body {
   overflow-x: hidden;
 }
 
+body > svg {
+  display: none;
+}
 
 h1,
 h2,

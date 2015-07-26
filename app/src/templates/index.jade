@@ -16,7 +16,6 @@
 			.heroRow__item-content-wrap
 				.heroRow__item-content-inner
 					h3.heroRow__item-title {{ settings.row-text-01 }}
-					//- .heroRow__item-button Shop now
 		img.heroRow__image(src="{{ 'home-row-01.jpg' | asset_url }}")
 
 	.heroRow__item
@@ -45,7 +44,8 @@
 							//- label(for="mce-EMAIL")
 							//- 	| Email Address
 							input#mce-EMAIL.required.email.site-newsletter__input(type="email", value="", name="EMAIL", placeholder='Your email address')
-							input#mc-embedded-subscribe.button.site-newsletter__button(type="submit", value="Subscribe", name="subscribe")
+							button#mc-embedded-subscribe.button.site-newsletter__button(type="submit", value="Subscribe", name="subscribe")
+								span Subscribe
 						//- p
 						//- 	a(href="http://us2.campaign-archive2.com/home/?u=9017bc446315b0e178f438760&id=ddc16c6dc2", title="View previous campaigns") View previous campaigns.
 						#mce-responses

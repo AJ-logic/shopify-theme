@@ -130,6 +130,26 @@
     ]
   },
   {
+    "name": "Social Links",
+    "settings": [
+      {
+        "type": "text",
+        "id": "link-facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "link-twitter",
+        "label": "Twitter"
+      },
+      {
+        "type": "text",
+        "id": "link-instagram",
+        "label": "Instagram"
+      }
+    ]
+  },
+  {
     "name": "Shipping Rates Calculator",
     "settings": [
       {

@@ -1,19 +1,50 @@
 footer.site-footer
 	.container
-	| {% if linklists.footer.links.size > 0 %}
-	ul.site-footer__menu
-		|   {% for link in linklists.footer.links %}
-		li.site-footer__menu-item
-		a.site-footer__menu-link(href="{{ link.url }}", title="{{ link.title }}", class="{% if link.active %}active{% endif %}")
-			| {{ link.title }}
-		|   {% endfor %}
-	| {% endif %}
 
-	| {% unless shop.enabled_payment_types == empty %}
+		.paymentMethods
+			h3.paymentMethods__title We accept:
+			ul.paymentMethods__list
+				li.paymentMethods__method
+					svg(viewbox='0 0 60 40')
+						use(xlink:href='#payment-icons--cc-01-ideal')
+				li.paymentMethods__method
+					svg(viewbox='0 0 60 40')
+						use(xlink:href='#payment-icons--cc-02-paypal')
+				li.paymentMethods__method
+					svg(viewbox='0 0 60 40')
+						use(xlink:href='#payment-icons--cc-03-visa')
+				li.paymentMethods__method
+					svg(viewbox='0 0 60 40')
+						use(xlink:href='#payment-icons--cc-04-mastercard')
+				li.paymentMethods__method
+					svg(viewbox='0 0 60 40')
+						use(xlink:href='#payment-icons--cc-05-amex')
 
-	|   {% for type in shop.enabled_payment_types %}
-	img(width="40", src="{{ type | payment_type_img_url }}")
-	|   {% endfor %}
-	| {% endunless %}
-	p.
-		Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}.
+		.footerSocialList
+			h3.footerSocialList__title Follow us:
+			ul.footerSocialList__list
+				li.footerSocialList__item
+					a.footerSocialList__link(href='{{ settings.link-facebook }}', target='_blank')
+						svg.footerSocialList__icon.footerSocialList__icon--facebook(viewbox='0 0 32 32')
+							use(xlink:href='#icons--facebook')
+				li.footerSocialList__item
+					a.footerSocialList__link(href='{{ settings.link-instagram }}', target='_blank')
+						svg.footerSocialList__icon.footerSocialList__icon--instagram(viewbox='0 0 32 32')
+							use(xlink:href='#icons--instagram', target='_blank')
+				li.footerSocialList__item
+					a.footerSocialList__link(href='{{ settings.link-twitter }}', target='_blank')
+						svg.footerSocialList__icon.footerSocialList__icon--twitter(viewbox='0 0 32 32')
+							use(xlink:href='#icons--twitter')
+
+		//- | {% if linklists.footer.links.size > 0 %}
+		//- ul.site-footer__menu
+		//- 	|   {% for link in linklists.footer.links %}
+		//- 	li.site-footer__menu-item
+		//- 	a.site-footer__menu-link(href="{{ link.url }}", title="{{ link.title }}", class="{% if link.active %}active{% endif %}")
+		//- 		| {{ link.title }}
+		//- 	|   {% endfor %}
+		//- | {% endif %}
+
+
+		span.site-footer__copyright
+			Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}.

@@ -12,10 +12,15 @@ $desktop:                   1200px;
   padding: 0 10px;
 
   @include breakpoint($tablet) {
-    padding: 0;
+    @include container($tablet);
+    padding: 0 20px;
   }
 
   @include breakpoint($desktop-small) {
+    @include container($desktop-small);
+  }
+
+  @include breakpoint($desktop) {
     @include container(1200px);
   }
 }
@@ -24,7 +29,7 @@ $desktop:                   1200px;
   height: 100%;
   transition: all .3s ease;
   position: relative;
-  padding-top: 60px;
+  padding-top: 50px;
 
   @include breakpoint($tablet) {
     padding-left: 75px;

@@ -6,9 +6,11 @@ jQuery(document).ready(function($) {
       var faqAnswer = $(this).next();
 
       if(!faqAnswer.hasClass('isActive')) {
+        $(this).addClass('isActive');
         faqAnswer.addClass('isActive');
       } else {
         faqAnswer.removeClass('isActive');
+        $(this).removeClass('isActive');
       }
     });
   });

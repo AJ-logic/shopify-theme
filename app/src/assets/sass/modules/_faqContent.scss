@@ -7,6 +7,31 @@
   h2 {
     margin: 0;
     cursor: pointer;
+    color: #ec008c;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1;
+
+    &:before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 7px 0 7px;
+      border-color: #ec008c transparent transparent transparent;
+      position: absolute;
+      left: 0;
+      top: 6px;
+      transform: rotate(-90deg);
+      transition: transform .2s ease;
+    }
+
+    &.isActive {
+
+      &:before {
+        transform:rotate(0);
+      }
+    }
   }
 
   p {

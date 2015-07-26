@@ -12,7 +12,8 @@ gulp.task('build', function(cb) {
       'images',
       'scripts:standalone',
       'iconfont',
-      'copy'
+      'copy',
+      'svgsprite'
     ],
     [
       'styles',

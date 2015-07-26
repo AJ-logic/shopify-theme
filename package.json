@@ -54,6 +54,7 @@
     "gulp-ignore": "^1.2.1",
     "gulp-replace": "^0.5.3",
     "gulp-zip": "^3.0.2",
-    "gulp-sequence": "^0.4.0"
+    "gulp-sequence": "^0.4.0",
+    "gulp-svg-sprite": "^1.2.6"
   }
 }

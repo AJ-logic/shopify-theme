@@ -20,7 +20,7 @@
     text-transform: uppercase;
 
     @include breakpoint($tablet) {
-      width: 50%;
+      width: 40%;
       text-align: left;
     }
 
@@ -39,7 +39,7 @@
     position: relative;
 
     @include breakpoint($tablet) {
-      width: 50%;
+      width: 40%;
     }
   }
 
@@ -67,8 +67,34 @@
     width: 30%;
     height: 36px;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     font-family: $headerfont;
+
+    span {
+      z-index: 11;
+      position: relative;
+    }
+
+    &:before {
+      content: '';
+      height: 36px;
+      width: 0;
+      background-color: #ec008c;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      transition: width .2s ease-out;
+    }
+
+    &:hover {
+
+      &:before {
+        visibility: visible;
+        width: 100%;
+
+      }
+    }
   }
 }
