@@ -19,13 +19,13 @@
 
   &__image {
     width: 100%;
-    height: 430px;
+    height: 40%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repat;
 
     @include breakpoint($desktop-small) {
-      width: 60%;
+      width: 50%;
       height: 100%;
       float: left;
     }
@@ -44,7 +44,7 @@
     @include breakpoint($desktop-small) {
       float: left;
       padding-top: 0;
-      width: 40%;
+      width: 50%;
     }
 
     @include breakpoint($desktop) {

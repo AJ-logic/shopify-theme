@@ -80,7 +80,8 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 					| {% endif %}
 
 					.single-product__errorWrap
-					button.single-product__button(type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}") Add to cart
+					button.single-product__button(type="submit", name="add", id="add", class="primary button disabled", value="{{ add_to_cart | escape }}")
+						span.single-product__buttonText Add to cart
 					| {% if collection %}
 					|   {% if collection.previous_product or collection.next_product %}
 

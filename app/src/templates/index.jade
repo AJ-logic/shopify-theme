@@ -8,25 +8,26 @@
 		.hero__content-container.container
 			h2.hero__title
 				a.hero__titleLink(href='/collections/all/', target="{% if settings.row-text-01 %}_blank {% else %} _self {% endif %}") {{ settings.hero_text }}
-			a.hero__cta(href='/collections/all/') {{ settings.hero_button_text }}
+			a.hero__cta(href='/collections/all/')
+				span.hero__cta-text {{ settings.hero_button_text }}
 .heroRow
 
 	.heroRow__item
-		a.heroRow__item-link(href='{{ settings.row-link-01 }}', target="{% if settings.row-text-01 %}_blank {% else %} _self {% endif %}")
+		a.heroRow__item-link(href='{{ settings.row-link-01 }}', target="{% if settings.row-taget-01 %}_blank{% endif %}")
 			.heroRow__item-content-wrap
 				.heroRow__item-content-inner
 					h3.heroRow__item-title {{ settings.row-text-01 }}
 		img.heroRow__image(src="{{ 'home-row-01.jpg' | asset_url }}")
 
 	.heroRow__item
-		a.heroRow__item-link(href='{{ settings.row-link-02 }}', target="{% if settings.row-text-02 %}_blank {% else %} _self {% endif %}")
+		a.heroRow__item-link(href='{{ settings.row-link-02 }}', target="{% if settings.row-target-02 %}_blank{% endif %}")
 			.heroRow__item-content-wrap
 				.heroRow__item-content-inner
 					h3.heroRow__item-title {{ settings.row-text-02 }}
 		img.heroRow__image(src="{{ 'home-row-02.jpg' | asset_url }}")
 
 	.heroRow__item
-		a.heroRow__item-link(href='{{ settings.row-link-03 }}', target="{% if settings.row-text-03 %}_blank {% else %} _self {% endif %}")
+		a.heroRow__item-link(href='{{ settings.row-link-03 }}', target="{% if settings.row-target-03 %}_blank{% endif %}")
 			.heroRow__item-content-wrap
 				.heroRow__item-content-inner
 					h3.heroRow__item-title {{ settings.row-text-03 }}

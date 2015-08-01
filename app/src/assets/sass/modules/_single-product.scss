@@ -145,6 +145,20 @@
     font-weight: 700;
     font-size: 20px;
     outline: none;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 0;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #ec008c;
+      transition: width .3s ease-in;
+      transform: translate3d(0,0,0);
+      z-index: 9;
+    }
 
     &.is-adding {
       opacity: .5;
@@ -152,11 +166,19 @@
 
     &:hover {
       border: 1px solid  #ec008c;
-      background-color: #ec008c;
+      // background-color: #ec008c;
       color: #fff;
+
+      &:before {
+        width: 100%;
+      }
     }
   }
 
+  &__buttonText {
+    position: relative;
+    z-index: 11;
+  }
   &__social {
     overflow: hidden;
     width: 100%;
