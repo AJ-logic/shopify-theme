@@ -103,22 +103,22 @@ article.single-product(itemscope, itemtype="http://schema.org/Product")
 			.single-product__social
 				ul.socialList
 					li.socialList__item
-						a.socialList__link(href='#')
+						a.socialList__link(href='https://www.facebook.com/sharer/sharer.php?u=http://shop.cfye.com{{ product.url }}', target="_blank")
 							i.socialList__icon.icon-facebook
 					li.socialList__item
-						a.socialList__link(href='#')
+						a.socialList__link(href='http://twitter.com/share?text=Checking out {{ product.title }}&amp;url=http://shop.cfye.com{{ product.url }}', target="_blank")
 							i.socialList__icon.icon-twitter
 					li.socialList__item
-						a.socialList__link(href='#')
+						a.socialList__link(href="https://pinterest.com/pin/create/button/?url=&amp;media=https:{{ product | img_url: 'grande' }}&amp;description={{ product.title }}", target="_blank")
 							i.socialList__icon.icon-pinterest
 					li.socialList__item
-						a.socialList__link(href='#')
+						a.socialList__link(href='https://plus.google.com/share?url=http://shop.cfye.com{{ product.url }}', target="_blank")
 							i.socialList__icon.icon-google-plus
 					li.socialList__item
-						a.socialList__link(href='#')
+						a.socialList__link(href="http://tumblr.com/widgets/share/tool?canonicalUrl=http://shop.cfye.com{{ product.url }}", target="_blank")
 							i.socialList__icon.icon-tumblr
 					li.socialList__item
-						a.socialList__link(href='#')
+						a.socialList__link(href='mailto:?subject={{ product.title }}&body=Check out {{ product.title }} on http://shop.cfye.com{{ product.url }}', target="_blank")
 							i.socialList__icon.icon-mail
 
 script.
