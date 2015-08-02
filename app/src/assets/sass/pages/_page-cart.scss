@@ -189,4 +189,15 @@
     float: right;
     margin-bottom: 30px;
   }
+
+  &__empty {
+    a {
+      color: #ec008c;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

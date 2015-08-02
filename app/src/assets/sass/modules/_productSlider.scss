@@ -19,6 +19,8 @@
     background-repeat: no-repeat;
   }
 
+
+
   .slick-dots {
     position: absolute;
     top: 50%;
@@ -100,4 +102,8 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+}
+
+[data-slick-index='1'] {
+  background-size: cover;
 }
